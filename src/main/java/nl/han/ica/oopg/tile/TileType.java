@@ -35,7 +35,7 @@ public class TileType <T extends Tile> {
 
     /**
      * This method returns new instances of the class which is specified in the constructor.
-     * @param tileSize the size of the tile which wil be used to resize the image of the tile.
+     * @param tileSize the size of the tile which will be used to resize the image of the tile.
      * @return tile
      */
 	public Tile createNewInstanceOfTile(int tileSize)
