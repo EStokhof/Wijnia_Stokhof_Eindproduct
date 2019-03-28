@@ -14,6 +14,12 @@ public class CBGapp extends GameEngine {
 	private Player player;
     private Sound backgroundMusic;
     
+    private final int WORLDWIDTH = 1204;
+	private final int WORLDHEIGHT = 903;
+ 
+
+
+    
     // Deze regel maakt het makkelijker om te refereren naar je plaatjes.
     public static String MEDIA_URL = "src/main/java/CelestialBodyGorge/media/";
     
@@ -24,8 +30,7 @@ public class CBGapp extends GameEngine {
 
     @Override
     public void setupGame() {
-        int worldWidth = 1204;
-        int worldHeight = 903;
+   
         
         // uiteraard kan je het toevoegen van
         // nieuwe game objects misschien het beste
@@ -37,9 +42,9 @@ public class CBGapp extends GameEngine {
         addGameObject(player, 200, 200);
       
         // set de view van de game. de hele map is altijd zichtbaar.
-        View view = new View(worldWidth, worldHeight);
+        View view = new View(WORLDWIDTH, WORLDHEIGHT);
         setView(view);
-        size(worldWidth, worldHeight);
+        size(WORLDWIDTH, WORLDHEIGHT);
         
         initializeSound();
         initializeTileMap();
@@ -82,4 +87,11 @@ public class CBGapp extends GameEngine {
         };
         tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }
+    public int getWORLDWIDTH() {
+ 		return WORLDWIDTH;
+ 	}
+
+ 	public int getWORLDHEIGHT() {
+ 		return WORLDHEIGHT;
+ 	}
 }

@@ -17,6 +17,8 @@ public class Player extends SpriteObject {
 	private final int AARDBEIZAADJE = 4;
 	private final int MAXGEREEDSCHAPVAST = 4;
 	
+
+	
 	ArrayList<IGereedschap> playerInventaris = new ArrayList<IGereedschap>();
 		
 	public Player(CBGapp world) {
@@ -40,6 +42,7 @@ public class Player extends SpriteObject {
 	@Override
 	public void keyPressed(int keyCode, char key) {
 		final int speed = 5;
+	if (this.getX() < 1204 || this.getX() > 0 || this.getY() < 704 || this.getY() > 0) {
 		if (key == 'a' || key == 'A') {
 			setDirectionSpeed(270, speed);
 			// setCurrentFrameIndex(0); texture change naar poppetje wat links loopt
@@ -73,6 +76,7 @@ public class Player extends SpriteObject {
 		if (key == ' ') {
 			playerInventaris.get(getGereedschapVast()).gereedschapActie();
 		}
+	}
 	}
 	
 	public int getGereedschapVast() {
