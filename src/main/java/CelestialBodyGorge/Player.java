@@ -1,5 +1,6 @@
 package CelestialBodyGorge;
 
+import java.util.ArrayList;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PConstants;
@@ -7,13 +8,27 @@ import processing.core.PConstants;
 public class Player extends SpriteObject {
 	private CBGapp world;
 	private int gereedschapVast;
-	private final int MAXGEREEDSCHAPVAST = 5;
 	private int hoeveelheidGeld;
-
+	
+	private final int SCHOFFEL = 0;
+	private final int GIETER = 1;
+	private final int ZEIS = 2;
+	private final int ROOSZAADJE = 3;
+	private final int AARDBEIZAADJE = 4;
+	private final int MAXGEREEDSCHAPVAST = 4;
+	
+	ArrayList<IGereedschap> playerInventaris = new ArrayList<IGereedschap>();
+		
 	public Player(CBGapp world) {
 		// Met `.concat()` plak je 2 strings aan elkaar.
 		// De methode returned een nieuwe String terug.
 		super(new Sprite(CBGapp.MEDIA_URL.concat("player.png")));
+		
+		playerInventaris.add(new Schoffel()); // index 0
+		playerInventaris.add(new Gieter()); // index 1
+		playerInventaris.add(new Zeis()); // index 2
+		playerInventaris.add(new Rooszaadje()); // index 3
+		playerInventaris.add(new Aardbeizaadje()); // index 4
 	}
 
 	@Override
@@ -55,13 +70,8 @@ public class Player extends SpriteObject {
 			}
 		}
 		if (key == ' ') {
-			gebruikGereedschap();
+			playerInventaris.get(getGereedschapVast()).gereedschapActie();
 		}
-	}
-
-	void gebruikGereedschap() {
-		int a = getGereedschapVast();
-		// LINK HIER NAAR GEREEDSCHAP. 
 	}
 	
 	public int getGereedschapVast() {
