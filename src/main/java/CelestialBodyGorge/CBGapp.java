@@ -1,12 +1,14 @@
 package CelestialBodyGorge;
 
 import nl.han.ica.oopg.engine.GameEngine;
+import nl.han.ica.oopg.sound.Sound;
 import nl.han.ica.oopg.view.View;
 
 // https://github.com/HANICA/oopg/wiki/03-Achtergrond-invoegen
 
 public class CBGapp extends GameEngine {
 	private Player player;
+    private Sound backgroundSound;
     
     // Deze regel maakt het makkelijker om te refereren naar je plaatjes.
     public static String MEDIA_URL = "src/main/java/CelestialBodyGorge/media/";
@@ -43,6 +45,7 @@ public class CBGapp extends GameEngine {
     }
     
     private void initializeSound() { 
-    	backgroundSound = new Sound(this, "")
+    	backgroundSound = new Sound(this, "src/main/java/CelestialBodyGorge/media/");
+    	
     }
 }

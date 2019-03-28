@@ -24,22 +24,22 @@ public class Player extends SpriteObject {
 	@Override
 	public void keyPressed(int keyCode, char key) {
 		final int speed = 5;
-		if (keyCode == PConstants.LEFT) {
+		if (key == 'a' || key == 'A') {
 			setDirectionSpeed(270, speed);
 			// setCurrentFrameIndex(0); texture change naar poppetje wat links loopt
 			System.out.println("Naar links lopen");
 		}
-		if (keyCode == PConstants.UP) {
+		if (key == 'w' || key == 'W') {
 			setDirectionSpeed(0, speed);
 			// texture change naar boven lopen
 			System.out.println("Naar boven lopen");
 		}
-		if (keyCode == PConstants.RIGHT) {
+		if (key == 'd' || key == 'D') {
 			setDirectionSpeed(90, speed);
 			System.out.println("Naar rechts lopen");
 			// setCurrentFrameIndex(1); texture change naar rechts lopen
 		}
-		if (keyCode == PConstants.DOWN) {
+		if (key == 's' || key == 'S') {
 			setDirectionSpeed(180, speed);
 			System.out.println("Naar onder lopen");
 			// texture change naar onder lopen
