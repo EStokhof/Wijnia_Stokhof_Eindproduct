@@ -1,5 +1,7 @@
 package CelestialBodyGorge;
 
-public  abstract class Plantenzaadjes implements Gereedschap{
-
+public  abstract class Plantenzaadjes implements IGereedschap {
+	
+	@Override
+	public abstract void gereedschapActie();
 }
