@@ -11,6 +11,7 @@ public class Player extends SpriteObject {
 	private int hoeveelheidGeld;
 
 	public Player(CBGapp world) {
+		
 		// Met `.concat()` plak je 2 strings aan elkaar.
 		// De methode returned een nieuwe String terug.
 		super(new Sprite(CBGapp.MEDIA_URL.concat("player.png")));
