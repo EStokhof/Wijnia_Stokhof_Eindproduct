@@ -1,5 +1,5 @@
 package CelestialBodyGorge;
 
-public class Aardbeizaadje {
+public class Aardbeizaadje extends Plantenzaadjes {
 
 }

@@ -25,11 +25,13 @@ public class CBGapp extends GameEngine {
         // nieuwe game objects misschien het beste
         // in een aparte methode doen
         // i.p.v. de update zo groot te maken.
+       
+       // creeert de player + zet dit in de game object lijst.  
         player = new Player(this);
         addGameObject(player, 200, 200);
-        
+      
+        // set de view van de game. de hele map is altijd zichtbaar.
         View view = new View(worldWidth, worldHeight);
-
         setView(view);
         size(worldWidth, worldHeight);
     }
@@ -38,5 +40,9 @@ public class CBGapp extends GameEngine {
     public void update() {
         // Dit doet nog helemaal niks
         
+    }
+    
+    private void initializeSound() { 
+    	backgroundSound = new Sound(this, "")
     }
 }
