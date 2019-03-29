@@ -51,7 +51,7 @@ public class Tile {
     }
     
      // set & get geschoffeld
-    public boolean isGeschoffeld() {
+    public boolean getGeschoffeld() {
 		return geschoffeld;
 	}
 	public void setGeschoffeld(boolean geschoffeld) {
@@ -59,7 +59,7 @@ public class Tile {
 	}
 
 	// set & get plant
-	public boolean isPlant() {
+	public boolean getPlant() {
 		return plant;
 	}
 	public void setPlant(boolean plant) {
@@ -67,7 +67,7 @@ public class Tile {
 	}
 
 	// set & get oogstbaar
-	public boolean isOogstbaar() {
+	public boolean getOogstbaar() {
 		return oogstbaar;
 	}
 	public void setOogstbaar(boolean oogstbaar) {
@@ -75,7 +75,7 @@ public class Tile {
 	}
 
 	// set & get loopbaar
-	public boolean isLoopbaar() {
+	public boolean getLoopbaar() {
 		return loopbaar;
 	}
 	public void setLoopbaar(boolean loopbaar) {

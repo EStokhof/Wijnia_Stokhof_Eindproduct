@@ -1,12 +1,11 @@
 package CelestialBodyGorge;
 
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.tile.Tile;
 
-public class Gieter extends Tile implements IGereedschap {
-
-	public Gieter(Sprite sprite) {
-		super(sprite);
+public class Gieter extends Gereedschap {
+	
+	public Gieter() {
+		super(new Sprite("src/main/java/CelestialBodyGorge/media/menu/gieter.png"));
 	}
 
 	@Override
