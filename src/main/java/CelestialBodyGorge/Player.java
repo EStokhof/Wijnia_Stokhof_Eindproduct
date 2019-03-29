@@ -13,15 +13,15 @@ import processing.core.PConstants;
 
 public class Player extends AnimatedSpriteObject implements ICollidableWithTiles {
 	private CBGapp world;
+	private Interface inventaris;
 	private int gereedschapVast;
-	private int hoeveelheidGeld;
+	private int goud;
 
 	private final int SCHOFFEL = 0;
 	private final int GIETER = 1;
 	private final int ZEIS = 2;
 	private final int ROOSZAADJE = 3;
 	private final int AARDBEIZAADJE = 4;
-	private final int MAXGEREEDSCHAPVAST = 4;
 
 	private float xPositie;
 	private float yPositie;
@@ -33,7 +33,12 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		// Met `.concat()` plak je 2 strings aan elkaar.
 		// De methode returned een nieuwe String terug.
 		super(new Sprite(CBGapp.MEDIA_URL.concat("player/naarBenedenLopen1.png")), 6);
+		
 		this.world = world;
+		goud = 500;
+		
+		inventaris = new Interface(); // iets meesturen? hierin sprites aanpassen van interface?
+
 		playerInventaris.add(new Schoffel()); // index 0
 		playerInventaris.add(new Gieter()); // index 1
 		playerInventaris.add(new Zeis()); // index 2
@@ -73,33 +78,43 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 				System.out.println("Naar onder lopen");
 				// texture change naar onder lopen
 			}
-			if (key == 'q' || key == 'Q') {
-				if (gereedschapVast != 0) {
-					gereedschapVast--;
-				}
-			}
-			if (key == 'e' || key == 'E') {
-				if (gereedschapVast != MAXGEREEDSCHAPVAST) {
-					gereedschapVast++;
-				}
-			}
-			if (key == ' ') {
-				playerInventaris.get(getGereedschapVast()).gereedschapActie();
-			}
-		}
-	}
+            if (key == 'q' || key == 'Q') {
+                if (gereedschapVast != 0) {
+                    gereedschapVast--;
+                    // verander sprites van inventaris (rood randje)
+                }
+            }
+            if (key == 'e' || key == 'E') {
+                if (gereedschapVast != playerInventaris.size()-1) {
+                    gereedschapVast++;
+                    // verander sprites van inventaris (rood randje)
+                }
+            }
+            if (key == ' ') {
+                playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
+            }
+	    }
+
 
 	public int getGereedschapVast() {
 		return gereedschapVast;
 	}
 
-	public int getHoeveelheidGeld() {
-		return hoeveelheidGeld;
+	public int getGoud() {
+		return goud;
 	}
 
-	public void setHoeveelheidGeld(int hoeveelheidGeld) {
-		this.hoeveelheidGeld = hoeveelheidGeld;
-		System.out.println("Geld is nu" + hoeveelheidGeld);
+	public void setGoud(int geld) {
+		goud += geld;
+		
+		if (geld < 0) {
+			geld *= -1;
+			System.out.println("Deze actie kostte " + geld + " goud");
+		} else {
+			System.out.println("je hebt " + geld + " goud verdient!");
+		}
+		
+		System.out.println("Geld is nu " + goud);
 	}
 
 	void movePlayerX(float stepSize) {

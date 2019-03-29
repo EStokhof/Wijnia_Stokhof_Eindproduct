@@ -2,13 +2,11 @@ package CelestialBodyGorge;
 
 public class Aardbeizaadje extends Plantenzaadjes {
 
-	@Override
-	public void gereedschapActie() {
+	public void plantActie() {
 		System.out.println("Gebruik aarbeizaadjes!");
 		
-		// To do:
-		// Change tile-sprite
-		// Create Aardbei-object
+		// maakt object aardbei aan
+		// in aarbei set sprite op stadium 1 (of 0)
 	}
 
 }

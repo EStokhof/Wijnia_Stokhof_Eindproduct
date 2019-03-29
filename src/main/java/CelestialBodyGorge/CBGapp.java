@@ -16,10 +16,7 @@ public class CBGapp extends GameEngine {
     private final int WORLDWIDTH = 1204;
 	private final int WORLDHEIGHT = 903;
 	private final int TILESIZE = 50;
- 
 
-
-    
     // Deze regel maakt het makkelijker om te refereren naar je plaatjes.
     public static String MEDIA_URL = "src/main/java/CelestialBodyGorge/media/";
     
@@ -30,7 +27,11 @@ public class CBGapp extends GameEngine {
 
     @Override
     public void setupGame() {
- 
+
+        // uiteraard kan je het toevoegen van
+        // nieuwe game objects misschien het beste
+        // in een aparte methode doen
+        // i.p.v. de update zo groot te maken.
        // creeert de player + zet dit in de game object lijst.  
         player = new Player(this);
         addGameObject(player, 200, 200);
