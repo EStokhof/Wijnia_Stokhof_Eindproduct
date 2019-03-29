@@ -2,5 +2,5 @@ package CelestialBodyGorge;
 
 public interface IGereedschap {
 	
-	public void gereedschapActie();
+	public void gereedschapActie(Player speler);
 }
