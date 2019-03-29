@@ -43,7 +43,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		inventaris = new Interface(); // iets meesturen? hierin sprites aanpassen van interface?
 
 		playerInventaris.add(new Schoffel()); // index 0
-		playerInventaris.add(new Gieter()); // index 1
+		//playerInventaris.add(new Gieter()); // index 1
 		playerInventaris.add(new Zeis()); // index 2
 		playerInventaris.add(new Rooszaadje()); // index 3
 		playerInventaris.add(new Aardbeizaadje()); // index 4
