@@ -8,7 +8,12 @@ import nl.han.ica.oopg.objects.Sprite;
  */
 public class Tile {
 
-    private Sprite sprite;
+	private boolean loopbaar = true;
+	private boolean geschoffeld = false;
+	private boolean plant = false;
+	private boolean oogstbaar = false;
+
+	private Sprite sprite;
 
     /**
      *
@@ -44,5 +49,37 @@ public class Tile {
     public void setSpriteSize(int size) {
         sprite.resize(size, size);
     }
+    
+     // set & get geschoffeld
+    public boolean isGeschoffeld() {
+		return geschoffeld;
+	}
+	public void setGeschoffeld(boolean geschoffeld) {
+		this.geschoffeld = geschoffeld;
+	}
+
+	// set & get plant
+	public boolean isPlant() {
+		return plant;
+	}
+	public void setPlant(boolean plant) {
+		this.plant = plant;
+	}
+
+	// set & get oogstbaar
+	public boolean isOogstbaar() {
+		return oogstbaar;
+	}
+	public void setOogstbaar(boolean oogstbaar) {
+		this.oogstbaar = oogstbaar;
+	}
+
+	// set & get loopbaar
+	public boolean isLoopbaar() {
+		return loopbaar;
+	}
+	public void setLoopbaar(boolean loopbaar) {
+		this.loopbaar = loopbaar;
+	}
 
 }
