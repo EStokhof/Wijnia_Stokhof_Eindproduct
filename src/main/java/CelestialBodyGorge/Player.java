@@ -17,7 +17,6 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	private Interface inventaris;
 	private int gereedschapVast;
 	private int goud;
-	
 
 	private final int SCHOFFEL = 0;
 	private final int GIETER = 1;
@@ -142,12 +141,13 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	void movePlayerX(float stepSize) {
 		float huidigePositie = this.getX();
 		float nieuwePositie = huidigePositie + stepSize;
-		
+
 		System.out.println(huidigePositie);
 		if (nieuwePositie < world.getWORLDWIDTH() || nieuwePositie > 0) {
 			if (getTileOnPlayerPosition().isLoopbaar() == true) {
-			System.out.println(nieuwePositie);
-			this.setX(nieuwePositie);
+				System.out.println(nieuwePositie);
+				this.setX(nieuwePositie);
+			}
 		}
 	}
 
@@ -160,18 +160,18 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 			this.setY(nieuwePositie);
 		}
 	}
-	
-	public Tile getTileOnPlayerPosition () { 
-		int x= (int) xPositie;
+
+	public Tile getTileOnPlayerPosition() {
+		int x = (int) xPositie;
 		int y = (int) yPositie;
-	return world.getTileOnObjectPosition(x, y);
+		return world.getTileOnObjectPosition(x, y);
 	}
-	public Tile getTileOnNextPlayerXPosition (float xPositie, float yPositie) { 
-		int x= (int) xPositie;
+
+	public Tile getTileOnNextPlayerXPosition(float xPositie, float yPositie) {
+		int x = (int) xPositie;
 		int y = (int) yPositie;
-	return world.getTileOnObjectPosition(x, y);
+		return world.getTileOnObjectPosition(x, y);
 	}
-	
 
 	@Override
 	public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
