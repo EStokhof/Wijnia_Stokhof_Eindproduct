@@ -25,6 +25,8 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	private float xPositie;
 	private float yPositie;
+	
+	private boolean frameSwitch;
 
 	ArrayList<IGereedschap> playerInventaris = new ArrayList<IGereedschap>();
 
@@ -32,7 +34,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 		// Met `.concat()` plak je 2 strings aan elkaar.
 		// De methode returned een nieuwe String terug.
-		super(new Sprite(CBGapp.MEDIA_URL.concat("player/naarBenedenLopen1.png")), 6);
+		super(new Sprite(CBGapp.MEDIA_URL.concat("player/player.png")), 6);
 		
 		this.world = world;
 		goud = 500;
@@ -46,6 +48,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		playerInventaris.add(new Aardbeizaadje()); // index 4
 		xPositie = this.getX();
 		yPositie = this.getY();
+		frameSwitch = false;
 	}
 
 	@Override
@@ -60,22 +63,38 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 			if (key == 'a' || key == 'A') {
 				movePlayerX(-world.getTILESIZE());
-				//this.setSprite
+				setCurrentFrameIndex(2);
 				System.out.println("Naar links lopen");
 			}
 			if (key == 'w' || key == 'W') {
 				movePlayerY(-world.getTILESIZE());
-				// texture change naar boven lopen
+				
+				if (frameSwitch == false) {
+					frameSwitch = true;
+					setCurrentFrameIndex(4);
+				} else { 
+					frameSwitch = false;
+				setCurrentFrameIndex(5);	
+				}
+				
 				System.out.println("Naar boven lopen");
+			 
 			}
 			if (key == 'd' || key == 'D') {
 				movePlayerX(world.getTILESIZE());
 				System.out.println("Naar rechts lopen");
-				// setCurrentFrameIndex(1); texture change naar rechts lopen
+				setCurrentFrameIndex(3); // texture change naar rechts lopen
 			}
 			if (key == 's' || key == 'S') {
 				movePlayerY(world.getTILESIZE());
 				System.out.println("Naar onder lopen");
+				if (frameSwitch == false) {
+					frameSwitch = true;
+					setCurrentFrameIndex(0);
+				} else { 
+					frameSwitch = false;
+				setCurrentFrameIndex(1);	
+				}
 				// texture change naar onder lopen
 			}
             if (key == 'q' || key == 'Q') {
@@ -94,6 +113,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
                 playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
             }
 	    }
+	}
 
 
 	public int getGereedschapVast() {
