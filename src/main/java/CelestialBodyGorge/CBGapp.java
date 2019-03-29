@@ -64,6 +64,7 @@ public class CBGapp extends GameEngine {
     private void initializeTileMap () { 
         Sprite grassSprite = new Sprite("src/main/java/CelestialBodyGorge/media/gras1.png");
         TileType<BoardsTile> boardTileType = new TileType<>(BoardsTile.class, grassSprite);
+        
         Sprite aardeSprite = new Sprite("src/main/java/CelestialBodyGorge/media/aarde1.png");
         TileType<BoardsTile> boardTileType2 = new TileType<>(BoardsTile.class, aardeSprite);
     	
