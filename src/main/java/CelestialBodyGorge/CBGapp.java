@@ -13,8 +13,8 @@ public class CBGapp extends GameEngine {
 	private Player player;
     private Sound backgroundMusic;
     
-    private final int WORLDWIDTH = 1204;
-	private final int WORLDHEIGHT = 903;
+    private final int WORLDWIDTH = 1200;
+	private final int WORLDHEIGHT = 800;
 	private final int TILESIZE = 50;
 
     // Deze regel maakt het makkelijker om te refereren naar je plaatjes.
@@ -58,28 +58,50 @@ public class CBGapp extends GameEngine {
     
     private void initializeTileMap () { 
         Sprite grassSprite = new Sprite("src/main/java/CelestialBodyGorge/media/gras1.png");
-        TileType<BoardsTile> boardTileType = new TileType<>(BoardsTile.class, grassSprite);
+        TileType<BoardsTile> boardTileGrass = new TileType<>(BoardsTile.class, grassSprite);
         
         Sprite aardeSprite = new Sprite("src/main/java/CelestialBodyGorge/media/aarde1.png");
-        TileType<BoardsTile> boardTileType2 = new TileType<>(BoardsTile.class, aardeSprite);
+        TileType<BoardsTile> boardTileAarde = new TileType<>(BoardsTile.class, aardeSprite);
+        
+        Sprite geschoffeldSprite = new Sprite("src/main/java/CelestialBodyGorge/media/aarde1.png");
+        TileType<BoardsTile> boardTileGeschoffeld = new TileType<>(BoardsTile.class, geschoffeldSprite);
+        
+        Sprite zaadjeSprite = new Sprite("src/main/java/CelestialBodyGorge/media/aarde1.png");
+        TileType<BoardsTile> boardTileZaadje = new TileType<>(BoardsTile.class, zaadjeSprite);
+        
+        Sprite roos1Sprite = new Sprite("src/main/java/CelestialBodyGorge/media/aarde1.png");
+        TileType<BoardsTile> boardTileRoos1 = new TileType<>(BoardsTile.class, roos1Sprite);
+        
+        Sprite roos2Sprite = new Sprite("src/main/java/CelestialBodyGorge/media/aarde1.png");
+        TileType<BoardsTile> boardTileRoos2 = new TileType<>(BoardsTile.class, roos2Sprite);
+        
+        Sprite aardbei1Sprite = new Sprite("src/main/java/CelestialBodyGorge/media/aarde1.png");
+        TileType<BoardsTile> boardTileAardbei1 = new TileType<>(BoardsTile.class, aardbei1Sprite);
+        
+        Sprite aardbei2Sprite = new Sprite("src/main/java/CelestialBodyGorge/media/aarde1.png");
+        TileType<BoardsTile> boardTileAardbei2 = new TileType<>(BoardsTile.class, aardbei2Sprite);
     	
-        TileType[] tileTypes = {boardTileType, boardTileType2};
+        TileType[] tileTypes = {boardTileGrass, boardTileAarde, boardTileGeschoffeld, boardTileZaadje,
+        		boardTileRoos1, boardTileRoos2, boardTileAardbei1, boardTileAardbei2};
+        // 0 t/m 7
         int tileSize = TILESIZE;
         int tilesMap[][] = {
-                {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-                {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-                {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-                {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-                {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-                {-1, -1, -1, 0, 1, 1, -1, -1, -1, -1},
-                {-1, -1, -1, 0, 4, 1, -1, -1, -1, -1},
-                {-1, -1, -1, 0, -1, 1, -1, -1, -1, -1},
-                {-1, -1, -1, -1, -1, 1, -1, -1, -1, -1},
-                {-1, -1, -1, 0, 0, 0, 0, -1, 0, 0},
-                {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-                {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-                {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-                {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
         tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }

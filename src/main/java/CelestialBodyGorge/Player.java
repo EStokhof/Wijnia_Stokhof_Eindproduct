@@ -94,6 +94,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
                 playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
             }
 	    }
+	}
 
 
 	public int getGereedschapVast() {
