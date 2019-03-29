@@ -1,7 +1,13 @@
 package CelestialBodyGorge;
 
-public abstract class Plantenzaadjes implements IGereedschap {
+import nl.han.ica.oopg.objects.Sprite;
+
+public abstract class ZakZaadjes extends Gereedschap {
 	protected int prijs = 40;
+	
+	ZakZaadjes(Sprite sprite) {
+		super(sprite);
+	}
 	
 	@Override
 	public void gereedschapActie(Player speler) {

@@ -14,10 +14,10 @@ import processing.core.PConstants;
 
 public class Player extends AnimatedSpriteObject implements ICollidableWithTiles {
 	private CBGapp world;
-	private Interface inventaris;
+	private Design inventaris;
+	private Design geldBalk;
 	private int gereedschapVast;
 	private int goud;
-	
 
 	private final int SCHOFFEL = 0;
 	private final int GIETER = 1;
@@ -30,18 +30,19 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	private boolean frameSwitch;
 
-	ArrayList<IGereedschap> playerInventaris = new ArrayList<IGereedschap>();
+	ArrayList<Gereedschap> playerInventaris = new ArrayList<>();
 
 	public Player(CBGapp world) {
 
 		// Met `.concat()` plak je 2 strings aan elkaar.
 		// De methode returned een nieuwe String terug.
-		super(new Sprite(CBGapp.MEDIA_URL.concat("player/player.png")), 6);
+		super(new Sprite(world.MEDIA_URL.concat("player/player.png")), 6);
 
 		this.world = world;
 		goud = 500;
 
-		inventaris = new Interface(); // iets meesturen? hierin sprites aanpassen van interface?
+		inventaris = new Design(); // iets meesturen? hierin sprites aanpassen van interface?
+		geldBalk = new Design();
 
 		playerInventaris.add(new Schoffel()); // index 0
 		playerInventaris.add(new Gieter()); // index 1
@@ -60,7 +61,6 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	@Override
 	public void keyPressed(int keyCode, char key) {
-		final int speed = 5;
 		if (this.getX() < world.getWORLDWIDTH() || this.getX() > 0 || this.getY() < world.getWORLDHEIGHT()
 				|| this.getY() > 0) {
 
@@ -145,9 +145,10 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		
 		System.out.println(huidigePositie);
 		if (nieuwePositie < world.getWORLDWIDTH() || nieuwePositie > 0) {
-			if (getTileOnPlayerPosition().isLoopbaar() == true) {
-			System.out.println(nieuwePositie);
-			this.setX(nieuwePositie);
+			if (getTileOnPlayerPosition().getLoopbaar() == true) {
+				System.out.println(nieuwePositie);
+				this.setX(nieuwePositie);
+			}
 		}
 	}
 
@@ -161,15 +162,35 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		}
 	}
 	
-	public Tile getTileOnPlayerPosition () { 
+	public Tile getTileOnPlayerPosition() { 
 		int x= (int) xPositie;
 		int y = (int) yPositie;
-	return world.getTileOnObjectPosition(x, y);
+		
+		return world.getTileOnObjectPosition(x, y);
 	}
-	public Tile getTileOnNextPlayerXPosition (float xPositie, float yPositie) { 
+	public Tile getTileOnNextPlayerXPosition(float xPositie, float yPositie) { 
 		int x= (int) xPositie;
 		int y = (int) yPositie;
-	return world.getTileOnObjectPosition(x, y);
+		
+		return world.getTileOnObjectPosition(x, y);
+	}
+	
+	public boolean getSpelerOpGeschoffeldeAarde() {
+		Tile tegel = getTileOnPlayerPosition();
+		
+		return tegel.getGeschoffeld();
+	}
+	
+	public boolean getSpelerOpPlant() {
+		Tile tegel = getTileOnPlayerPosition();
+		
+		return tegel.getPlant();
+	}
+	
+	public boolean getSpelerOpOogst() {
+		Tile tegel = getTileOnPlayerPosition();
+		
+		return tegel.getOogstbaar();
 	}
 	
 
