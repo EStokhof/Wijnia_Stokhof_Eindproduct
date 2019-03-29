@@ -54,7 +54,7 @@ public class CBGapp extends GameEngine {
     }
     
     private void initializeSound() { 
-    	backgroundMusic = new Sound(this, "src/main/java/CelestialBodyGorge/media/soundtrack.mp3");
+    	backgroundMusic = new Sound(this, "src/main/java/CelestialBodyGorge/media/muziek/soundtrack.mp3");
     	backgroundMusic.loop(-1);
     }
     
