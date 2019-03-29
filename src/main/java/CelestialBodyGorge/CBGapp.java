@@ -8,7 +8,6 @@ import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
 
-// https://github.com/HANICA/oopg/wiki/03-Achtergrond-invoegen
 
 public class CBGapp extends GameEngine {
 	private Player player;
@@ -16,6 +15,7 @@ public class CBGapp extends GameEngine {
     
     private final int WORLDWIDTH = 1204;
 	private final int WORLDHEIGHT = 903;
+	private final int TILESIZE = 50;
  
 
 
@@ -30,13 +30,7 @@ public class CBGapp extends GameEngine {
 
     @Override
     public void setupGame() {
-   
-        
-        // uiteraard kan je het toevoegen van
-        // nieuwe game objects misschien het beste
-        // in een aparte methode doen
-        // i.p.v. de update zo groot te maken.
-       
+ 
        // creeert de player + zet dit in de game object lijst.  
         player = new Player(this);
         addGameObject(player, 200, 200);
@@ -69,7 +63,7 @@ public class CBGapp extends GameEngine {
         TileType<BoardsTile> boardTileType2 = new TileType<>(BoardsTile.class, aardeSprite);
     	
         TileType[] tileTypes = {boardTileType, boardTileType2};
-        int tileSize = 50;
+        int tileSize = TILESIZE;
         int tilesMap[][] = {
                 {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                 {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
@@ -95,4 +89,7 @@ public class CBGapp extends GameEngine {
  	public int getWORLDHEIGHT() {
  		return WORLDHEIGHT;
  	}
+ 	public int getTILESIZE() {
+		return TILESIZE;
+	}
 }
