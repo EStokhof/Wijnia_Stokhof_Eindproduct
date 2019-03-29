@@ -12,6 +12,8 @@ import nl.han.ica.oopg.view.View;
 public class CBGapp extends GameEngine {
 	private Player player;
     private Sound backgroundMusic;
+ 
+	private TileMap tilemap;
     
     private final int WORLDWIDTH = 1200;
 	private final int WORLDHEIGHT = 800;
@@ -105,6 +107,11 @@ public class CBGapp extends GameEngine {
         };
         tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }
+    
+public Tile getTileOnObjectPosition (int x, int y) { 
+	return tileMap.getTileOnPosition( x, y);
+}
+    
     public int getWORLDWIDTH() {
  		return WORLDWIDTH;
  	}
@@ -115,4 +122,7 @@ public class CBGapp extends GameEngine {
  	public int getTILESIZE() {
 		return TILESIZE;
 	}
+    public TileMap getTilemap() {
+ 		return tilemap;
+ 	}
 }
