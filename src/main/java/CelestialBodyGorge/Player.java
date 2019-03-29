@@ -144,7 +144,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 		System.out.println(huidigePositie);
 		if (nieuwePositie < world.getWORLDWIDTH() || nieuwePositie > 0) {
-			if (getTileOnPlayerPosition().isLoopbaar() == true) {
+			if (getTileOnNextPlayerPosition(nieuwePositie, this.getY()).isLoopbaar() == true) {
 				System.out.println(nieuwePositie);
 				this.setX(nieuwePositie);
 			}
@@ -156,7 +156,8 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		float nieuwePositie = huidigePositie + stepSize;
 		System.out.println(huidigePositie);
 		if (nieuwePositie <= world.getWORLDHEIGHT() || nieuwePositie >= 0) {
-			System.out.println(nieuwePositie);
+			if (getTileOnNextPlayerPosition(this.getX(), nieuwePositie).isLoopbaar() == true)
+				System.out.println(nieuwePositie);
 			this.setY(nieuwePositie);
 		}
 	}
@@ -167,7 +168,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		return world.getTileOnObjectPosition(x, y);
 	}
 
-	public Tile getTileOnNextPlayerXPosition(float xPositie, float yPositie) {
+	public Tile getTileOnNextPlayerPosition(float xPositie, float yPositie) {
 		int x = (int) xPositie;
 		int y = (int) yPositie;
 		return world.getTileOnObjectPosition(x, y);
