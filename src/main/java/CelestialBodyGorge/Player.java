@@ -1,10 +1,7 @@
 package CelestialBodyGorge;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import nl.han.ica.oopg.collision.CollidedTile;
-import nl.han.ica.oopg.collision.ICollidableWithTiles;
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.Tile;
