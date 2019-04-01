@@ -13,6 +13,7 @@ public class Player extends AnimatedSpriteObject {
 	private int gereedschapVast;
 	private int goud = 1;
 
+	
 	private float xPositie;
 	private float yPositie;
 
@@ -35,8 +36,8 @@ public class Player extends AnimatedSpriteObject {
 		playerInventaris.add(new Schoffel()); // index 0
 		playerInventaris.add(new Gieter()); // index 1
 		playerInventaris.add(new Zeis()); // index 2
-		playerInventaris.add(new Aardbeizaadje()); // index 3
-		playerInventaris.add(new Rooszaadje()); // index 4
+		playerInventaris.add(new Aardbeizaadje(world)); // index 3
+		playerInventaris.add(new Rooszaadje(world)); // index 4
 		xPositie = this.getX();
 		yPositie = this.getY();
 		frameSwitch = false;
@@ -139,10 +140,9 @@ public class Player extends AnimatedSpriteObject {
 		float huidigePositie = this.getX();
 		float nieuwePositie = huidigePositie + stepSize;
 
-		System.out.println(huidigePositie);
 		if (nieuwePositie < world.getWORLDWIDTH() || nieuwePositie > 0) {
 			if (getTileOnNextPlayerPosition(nieuwePositie, this.getY()).getLoopbaar() == true) {
-				System.out.println(nieuwePositie);
+				xPositie = nieuwePositie;
 				this.setX(nieuwePositie);
 			}
 		}
@@ -151,18 +151,20 @@ public class Player extends AnimatedSpriteObject {
 	void movePlayerY(float stepSize) {
 		float huidigePositie = this.getY();
 		float nieuwePositie = huidigePositie + stepSize;
-		System.out.println(huidigePositie);
 		if (nieuwePositie <= world.getWORLDHEIGHT() || nieuwePositie >= 0) {
 			if (getTileOnNextPlayerPosition(this.getX(), nieuwePositie).getLoopbaar() == true)
-				System.out.println(nieuwePositie);
+				yPositie = nieuwePositie;
 			this.setY(nieuwePositie);
 		}
 	}
 	
 	public Tile getTileOnPlayerPosition() { 
+		System.out.println(xPositie);
+		System.out.println(yPositie);
+		
 		int x= (int) xPositie;
 		int y = (int) yPositie;
-		
+	
 		return world.getTileOnObjectPosition(x, y);
 	}
 
@@ -190,6 +192,16 @@ public class Player extends AnimatedSpriteObject {
 		
 		return tegel.getOogstbaar();
 	}
+
+	public float getxPositie() {
+		return xPositie;
+	}
+
+	public float getyPositie() {
+		return yPositie;
+	}
+	
+	
 
 
 	

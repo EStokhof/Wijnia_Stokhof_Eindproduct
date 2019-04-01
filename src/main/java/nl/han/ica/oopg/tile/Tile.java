@@ -8,10 +8,19 @@ import nl.han.ica.oopg.objects.Sprite;
  */
 public class Tile {
 
-	private boolean loopbaar = true;
-	private boolean geschoffeld = false;
+	// voor als het een plant is.
+	// 0 is zaadje, 4 is oogstbaar. 
+	private int plantStadium;
+	private final int ROOS = 0;
+	private final int AARDBEI = 1;
+	private int plantsoort; 
 	private boolean plant = false;
+	private boolean geschoffeld = false;
 	private boolean oogstbaar = false;
+	
+	private boolean loopbaar = true;
+	private boolean schoffelbaar = true;
+
 
 	private Sprite sprite;
 
@@ -19,8 +28,10 @@ public class Tile {
      *
      * @param sprite The image which will be drawn whenever the draw method of the tile is called.
      */
-    public Tile(Sprite sprite) {
+    public Tile(Sprite sprite, boolean loopbaar, boolean schoffelbaar) {
         setSprite(sprite);
+        this.loopbaar = loopbaar;
+        this.schoffelbaar = schoffelbaar;
     }
 
     /**
@@ -80,6 +91,9 @@ public class Tile {
 	}
 	public void setLoopbaar(boolean loopbaar) {
 		this.loopbaar = loopbaar;
+	}
+	public boolean getSchoffelbaar() {
+		return schoffelbaar;
 	}
 
 }

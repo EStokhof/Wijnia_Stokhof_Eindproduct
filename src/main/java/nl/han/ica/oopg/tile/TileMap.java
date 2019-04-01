@@ -156,7 +156,9 @@ public class TileMap {
      * @return The instance of the tile on the given position
      */
     public Tile getTileOnPosition(int x, int y) {
+    
         return getTileOnIndex(x / tileSize, y / tileSize);
+        
     }
 
     /**

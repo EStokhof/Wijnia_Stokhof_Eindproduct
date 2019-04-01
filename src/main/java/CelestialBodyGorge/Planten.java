@@ -4,18 +4,21 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.Tile;
 import nl.han.ica.oopg.tile.TileMap;
 
-public abstract class Planten extends Tile {
+public abstract class Planten{
 	protected int stadium;
 	protected int x;
 	protected int y;
-	protected Tile tegel;
+	protected CBGapp world;
+	protected Tile tile;
 	
 	protected final int MAXSTADIUM = 3;
 	
-	public Planten(Sprite sprite, int x, int y) {
-		super(sprite);
+	public Planten(Sprite sprite, int x, int y, CBGapp world) {
+		this.world = world;
 		this.x = x;
 		this.y = y;
+		tile = world.getTileOnPlayerPosition();
+		
 	}
 	
 	public void setStadium() {
@@ -27,6 +30,8 @@ public abstract class Planten extends Tile {
 			}
 		}
 	}
+	
+
 	
 	protected abstract void setSprite(int stadium);
 	

@@ -145,6 +145,12 @@ public class CBGapp extends GameEngine {
 public Tile getTileOnObjectPosition (int x, int y) { 
 	return tileMap.getTileOnPosition( x, y);
 }
+public Tile getTileOnPlayerPosition () { 
+	 int x = (int)player.getxPositie();
+	 int y = (int) player.getyPositie();
+		return tileMap.getTileOnPosition( x, y);
+		
+	}
     
     public int getWORLDWIDTH() {
  		return WORLDWIDTH;

@@ -12,9 +12,9 @@ public abstract class ZakZaadjes extends Gereedschap {
 		}
 		
 		// if (tegel waar ik op sta == geschoffeld) {
-		plantActie();
+		plantActie(speler);
 		// }
 	}
 	
-	public abstract void plantActie();
+	public abstract void plantActie(Player speler);
 }
