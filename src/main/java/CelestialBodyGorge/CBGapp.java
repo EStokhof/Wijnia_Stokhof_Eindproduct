@@ -34,11 +34,6 @@ public class CBGapp extends GameEngine {
     	initializeSound();
         initializeTileMap();
         
-        // uiteraard kan je het toevoegen van
-        // nieuwe game objects misschien het beste
-        // in een aparte methode doen
-        // i.p.v. de update zo groot te maken.
-       // creeert de player + zet dit in de game object lijst.  
         player = new Player(this, tileMap);
         addGameObject(player, 200, 200);
         createDashboard(150, 30);
@@ -61,41 +56,44 @@ public class CBGapp extends GameEngine {
     }
     
     private void initializeTileMap () { 
+    	
+    	// TILES ----------------------------
         Sprite grassSprite = new Sprite("src/main/java/CelestialBodyGorge/media/grond/gras1.png");
-        TileType<BoardsTile> boardTileGrass = new TileType<>(BoardsTile.class, grassSprite);
+        BoardsTileType boardTileGrass = new BoardsTileType(grassSprite, false, true);
         
         Sprite aardeSprite = new Sprite("src/main/java/CelestialBodyGorge/media/grond/aarde1.png");
-        TileType<BoardsTile> boardTileAarde = new TileType<>(BoardsTile.class, aardeSprite);
+        BoardsTileType boardTileAarde = new BoardsTileType(aardeSprite, true, true);
         
+        // MENU --------------------------------------
         // Schoffel
     	Sprite schoffelNormaal = new Sprite("src/main/java/CelestialBodyGorge/media/menu/schoffelNormaal.PNG");
-    	TileType<BoardsTile> boardTileSchoffelNormaal = new TileType<>(BoardsTile.class, schoffelNormaal);
+    	MenuTileType boardTileSchoffelNormaal = new MenuTileType(schoffelNormaal);
     	Sprite schoffelGeselecteerd = new Sprite("src/main/java/CelestialBodyGorge/media/menu/schoffelGeselecteerd.PNG");
-    	TileType<BoardsTile> boardTileSchoffelGeselecteerd = new TileType<>(BoardsTile.class, schoffelGeselecteerd);
+    	MenuTileType  boardTileSchoffelGeselecteerd = new MenuTileType(schoffelGeselecteerd);
     	
     	// Gieter
     	Sprite gieterNormaal = new Sprite("src/main/java/CelestialBodyGorge/media/menu/gieter.png");
-    	TileType<BoardsTile> boardTileGieterNormaal = new TileType<>(BoardsTile.class, gieterNormaal);
+    	MenuTileType  boardTileGieterNormaal = new MenuTileType( gieterNormaal);
     	Sprite gieterGeselecteerd = new Sprite("src/main/java/CelestialBodyGorge/media/menu/gieterGeselecteerd.png");
-    	TileType<BoardsTile> boardTileGieterGeselecteerd = new TileType<>(BoardsTile.class, gieterGeselecteerd);
+    	MenuTileType  boardTileGieterGeselecteerd = new MenuTileType( gieterGeselecteerd);
     	
     	// Zeis
     	Sprite zeisNormaal = new Sprite("src/main/java/CelestialBodyGorge/media/menu/zeis.png");
-    	TileType<BoardsTile> boardTileZeisNormaal = new TileType<>(BoardsTile.class, zeisNormaal);
+    	MenuTileType  boardTileZeisNormaal = new MenuTileType( zeisNormaal);
     	Sprite zeisGeselecteerd = new Sprite("src/main/java/CelestialBodyGorge/media/menu/zeisGeselecteerd.png");
-    	TileType<BoardsTile> boardTileZeisGeselecteerd = new TileType<>(BoardsTile.class, zeisGeselecteerd);
+    	MenuTileType  boardTileZeisGeselecteerd = new MenuTileType( zeisGeselecteerd);
     	
     	// Aardbeizaadje
     	Sprite aardbeizaadjeNormaal = new Sprite("src/main/java/CelestialBodyGorge/media/menu/aardbeizaadje.PNG");
-    	TileType<BoardsTile> boardTileAardbeizaadjeNormaal = new TileType<>(BoardsTile.class, aardbeizaadjeNormaal);
+    	MenuTileType  boardTileAardbeizaadjeNormaal =new MenuTileType( aardbeizaadjeNormaal);
     	Sprite aardbeizaadjeGeselecteerd = new Sprite("src/main/java/CelestialBodyGorge/media/menu/aardbeizaadjeGeselecteerd.png");
-    	TileType<BoardsTile> boardTileAardbeizaadjeGeselecteerd = new TileType<>(BoardsTile.class, aardbeizaadjeGeselecteerd);
+    	MenuTileType  boardTileAardbeizaadjeGeselecteerd = new MenuTileType( aardbeizaadjeGeselecteerd);
     	
     	// Rooszaadje
     	Sprite rooszaadjeNormaal = new Sprite("src/main/java/CelestialBodyGorge/media/menu/rooszaadje.PNG");
-    	TileType<BoardsTile> boardTileRooszaadjeNormaal = new TileType<>(BoardsTile.class, rooszaadjeNormaal);
+    	MenuTileType  boardTileRooszaadjeNormaal =new MenuTileType( rooszaadjeNormaal);
     	Sprite rooszaadjeGeselecteerd = new Sprite("src/main/java/CelestialBodyGorge/media/menu/rooszaadjeGeselecteerd.png");
-    	TileType<BoardsTile> boardTileRooszaadjeGeselecteerd = new TileType<>(BoardsTile.class, rooszaadjeGeselecteerd);
+    	MenuTileType  boardTileRooszaadjeGeselecteerd = new MenuTileType(rooszaadjeGeselecteerd);
     	
         TileType[] tileTypes = {boardTileGrass, boardTileAarde, boardTileSchoffelNormaal, boardTileGieterNormaal, 
         		boardTileZeisNormaal, boardTileAardbeizaadjeNormaal, boardTileRooszaadjeNormaal,
@@ -142,14 +140,23 @@ public class CBGapp extends GameEngine {
     	        dashboardTextGoud.setText("Goud: " + player.getGoud());
     }
     
-public Tile getTileOnObjectPosition (int x, int y) { 
-	return tileMap.getTileOnPosition( x, y);
+public BoardsTile getTileOnObjectPosition (int x, int y) { 
+	return getTileFromTileMap( x, y);
 }
-public Tile getTileOnPlayerPosition () { 
+public BoardsTile getTileOnPlayerPosition () { 
 	 int x = (int)player.getxPositie();
 	 int y = (int) player.getyPositie();
-		return tileMap.getTileOnPosition( x, y);
+		return getTileFromTileMap( x, y);
 		
+	}
+
+	private BoardsTile getTileFromTileMap(int x, int y) {
+		Tile tile = tileMap.getTileOnPosition(x, y);
+		if (tile == null || !(tile instanceof BoardsTile)) {
+			return null;
+		}
+		
+		return (BoardsTile) tile;
 	}
     
     public int getWORLDWIDTH() {

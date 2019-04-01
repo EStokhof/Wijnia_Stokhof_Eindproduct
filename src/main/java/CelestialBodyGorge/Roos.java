@@ -4,32 +4,36 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.Tile;
 
 public class Roos extends Planten {
-    private Sprite roosStadium1 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos2.png");
-    private Sprite roosStadium2 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos3.png");
-    private Sprite roosOogst = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos4.png");
+	private final static Sprite stadium0 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos1.png");
+    private final static Sprite stadium1 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos2.png");
+    private final static Sprite stadium2 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos3.png");
+    private final static Sprite oogst = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos4.png");
 	
-    Tile tile;
-    
-	Roos(int x, int y, CBGapp world) {
-		super(new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos1.png"), x, y, world);
-	
+	public Roos(BoardsTile tile) {
+		super(tile);
 	}
-	
-	
 
-//	@Override
-protected void setSprite(int stadium) {
-}
-//		switch(stadium) {
-//		case 1:
-//			setSprite(roosStadium1);
-//			break;
-//		case 2:
-//			setSprite(roosStadium2);
-//			break;
-//		case 3:
-//			setSprite(roosOogst);
-//			break;
-//		}	
-//	}
+	@Override
+	protected Sprite getSpriteStadium0() {
+		// TODO Auto-generated method stub
+		return stadium0;
+	}
+
+	@Override
+	protected Sprite getSpriteStadium1() {
+		// TODO Auto-generated method stub
+		return stadium1;
+	}
+
+	@Override
+	protected Sprite getSpriteStadium2() {
+		// TODO Auto-generated method stub
+		return stadium2;
+	}
+
+	@Override
+	protected Sprite getSpriteStadium3() {
+		// TODO Auto-generated method stub
+		return oogst;
+	}
 }

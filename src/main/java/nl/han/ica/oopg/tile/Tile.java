@@ -10,17 +10,6 @@ public class Tile {
 
 	// voor als het een plant is.
 	// 0 is zaadje, 4 is oogstbaar. 
-	private int plantStadium;
-	private final int ROOS = 0;
-	private final int AARDBEI = 1;
-	private int plantsoort; 
-	private boolean plant = false;
-	private boolean geschoffeld = false;
-	private boolean oogstbaar = false;
-	
-	private boolean loopbaar = true;
-	private boolean schoffelbaar = true;
-
 
 	private Sprite sprite;
 
@@ -28,10 +17,9 @@ public class Tile {
      *
      * @param sprite The image which will be drawn whenever the draw method of the tile is called.
      */
-    public Tile(Sprite sprite, boolean loopbaar, boolean schoffelbaar) {
+    public Tile(Sprite sprite) {
         setSprite(sprite);
-        this.loopbaar = loopbaar;
-        this.schoffelbaar = schoffelbaar;
+ 
     }
 
     /**
@@ -61,39 +49,5 @@ public class Tile {
         sprite.resize(size, size);
     }
     
-     // set & get geschoffeld
-    public boolean getGeschoffeld() {
-		return geschoffeld;
-	}
-	public void setGeschoffeld(boolean geschoffeld) {
-		this.geschoffeld = geschoffeld;
-	}
-
-	// set & get plant
-	public boolean getPlant() {
-		return plant;
-	}
-	public void setPlant(boolean plant) {
-		this.plant = plant;
-	}
-
-	// set & get oogstbaar
-	public boolean getOogstbaar() {
-		return oogstbaar;
-	}
-	public void setOogstbaar(boolean oogstbaar) {
-		this.oogstbaar = oogstbaar;
-	}
-
-	// set & get loopbaar
-	public boolean getLoopbaar() {
-		return loopbaar;
-	}
-	public void setLoopbaar(boolean loopbaar) {
-		this.loopbaar = loopbaar;
-	}
-	public boolean getSchoffelbaar() {
-		return schoffelbaar;
-	}
 
 }

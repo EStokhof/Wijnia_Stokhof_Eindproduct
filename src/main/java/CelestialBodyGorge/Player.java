@@ -11,9 +11,8 @@ public class Player extends AnimatedSpriteObject {
 	private CBGapp world;
 	private Inventaris inventaris;
 	private int gereedschapVast;
-	private int goud = 1;
+	private int goud = 400;
 
-	
 	private float xPositie;
 	private float yPositie;
 
@@ -100,14 +99,14 @@ public class Player extends AnimatedSpriteObject {
 			if (key == ' ') {
 				playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
 			}
-			
+
 			inventaris.tekenInventaris(gereedschapVast);
 		}
 		if (key == 'p' || key == 'P') {
 			if (Pauze == true) {
 				Pauze = false;
 				System.out.println("pauze");
-				//world.toonPauzeTutorial();
+				// world.toonPauzeTutorial();
 			} else {
 				Pauze = true;
 			}
@@ -137,11 +136,14 @@ public class Player extends AnimatedSpriteObject {
 	}
 
 	void movePlayerX(float stepSize) {
+		// functie om de player elke keer een tile te laten lopen, X-as
 		float huidigePositie = this.getX();
 		float nieuwePositie = huidigePositie + stepSize;
 
 		if (nieuwePositie < world.getWORLDWIDTH() || nieuwePositie > 0) {
+			// als de volgende stap in de wereld zit
 			if (getTileOnNextPlayerPosition(nieuwePositie, this.getY()).getLoopbaar() == true) {
+				// check of de volgende tile loopbaar is
 				xPositie = nieuwePositie;
 				this.setX(nieuwePositie);
 			}
@@ -149,48 +151,33 @@ public class Player extends AnimatedSpriteObject {
 	}
 
 	void movePlayerY(float stepSize) {
+		// functie om de player een tile elke keer te laten lopen, Y-as
 		float huidigePositie = this.getY();
 		float nieuwePositie = huidigePositie + stepSize;
-		if (nieuwePositie <= world.getWORLDHEIGHT() || nieuwePositie >= 0) {
-			if (getTileOnNextPlayerPosition(this.getX(), nieuwePositie).getLoopbaar() == true)
+
+		if (nieuwePositie < world.getWORLDHEIGHT() || nieuwePositie > 0) {
+			// als de volgende stap in de wereld zit
+			if (getTileOnNextPlayerPosition(this.getX(), nieuwePositie).getLoopbaar() == true) {
+				// check of de volgende tile loopbaar is
 				yPositie = nieuwePositie;
-			this.setY(nieuwePositie);
+				this.setY(nieuwePositie);
+			}
 		}
 	}
-	
-	public Tile getTileOnPlayerPosition() { 
-		System.out.println(xPositie);
-		System.out.println(yPositie);
-		
-		int x= (int) xPositie;
+
+	public BoardsTile getTileOnPlayerPosition() {
+		int x = (int) xPositie;
 		int y = (int) yPositie;
-	
+
 		return world.getTileOnObjectPosition(x, y);
 	}
 
-	public Tile getTileOnNextPlayerPosition(float xPositie, float yPositie) { 
-		int x= (int) xPositie;
+	public BoardsTile getTileOnNextPlayerPosition(float xPositie, float yPositie) {
+		// deze functie is nodig voor het lopen.
+		int x = (int) xPositie;
 		int y = (int) yPositie;
-		
+
 		return world.getTileOnObjectPosition(x, y);
-	}
-	
-	public boolean getSpelerOpGeschoffeldeAarde() {
-		Tile tegel = getTileOnPlayerPosition();
-		
-		return tegel.getGeschoffeld();
-	}
-	
-	public boolean getSpelerOpPlant() {
-		Tile tegel = getTileOnPlayerPosition();
-		
-		return tegel.getPlant();
-	}
-	
-	public boolean getSpelerOpOogst() {
-		Tile tegel = getTileOnPlayerPosition();
-		
-		return tegel.getOogstbaar();
 	}
 
 	public float getxPositie() {
@@ -200,9 +187,5 @@ public class Player extends AnimatedSpriteObject {
 	public float getyPositie() {
 		return yPositie;
 	}
-	
-	
 
-
-	
 }

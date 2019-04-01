@@ -10,11 +10,11 @@ public class Schoffel extends Gereedschap {
 	@Override
 	public void gereedschapActie(Player speler) {
 		System.out.println("Gebruik schoffel!");
-		Tile tile = speler.getTileOnPlayerPosition();
+		BoardsTile boardstile = speler.getTileOnPlayerPosition();
 		
-		if (tile.getSchoffelbaar() == true) {
-			tile.setGeschoffeld(true);
-			tile.setSprite(geschoffeldeGrond);
+		if (boardstile.getSchoffelbaar() == true) {
+			boardstile.setGeschoffeld(true);
+			boardstile.setSprite(geschoffeldeGrond);
 			
 		}
 		

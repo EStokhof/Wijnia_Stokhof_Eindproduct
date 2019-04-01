@@ -3,28 +3,37 @@ package CelestialBodyGorge;
 import nl.han.ica.oopg.objects.Sprite;
 
 public class Aardbei extends Planten {
-    private Sprite aardbeiStadium1 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/aardbei2.png");
-    private Sprite aardbeiStadium2 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/aardbei3.png");
-    private Sprite aardbeiOogst = new Sprite("src/main/java/CelestialBodyGorge/media/planten/aardbei4.png");
-	
-    
-	Aardbei(int x, int y, CBGapp world) {
-		super(new Sprite("src/main/java/CelestialBodyGorge/media/planten/aardbei1.png"), x, y, world);
+	private final static Sprite stadium0 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/aardbei1.png");
+	private final static Sprite stadium1 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/aardbei2.png");
+	private final static Sprite stadium2 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/aardbei3.png");
+	private final static Sprite oogst = new Sprite("src/main/java/CelestialBodyGorge/media/planten/aardbei4.png");
+
+	public Aardbei(BoardsTile tile) {
+		super(tile);
 	}
 
 	@Override
-	protected void setSprite(int stadium) {
+	protected Sprite getSpriteStadium0() {
+		// TODO Auto-generated method stub
+		return stadium0;
 	}
-//		switch(stadium) {
-//		case 1:
-//			setSprite(aardbeiStadium1);
-//			break;
-//		case 2:
-//			setSprite(aardbeiStadium2);
-//			break;
-//		case 3:
-//			setSprite(aardbeiOogst);
-//			break;
-//		}	
+
+	@Override
+	protected Sprite getSpriteStadium1() {
+		// TODO Auto-generated method stub
+		return stadium1;
+	}
+
+	@Override
+	protected Sprite getSpriteStadium2() {
+		// TODO Auto-generated method stub
+		return stadium2;
+	}
+
+	@Override
+	protected Sprite getSpriteStadium3() {
+		// TODO Auto-generated method stub
+		return oogst;
+	}
 //	}
 }
