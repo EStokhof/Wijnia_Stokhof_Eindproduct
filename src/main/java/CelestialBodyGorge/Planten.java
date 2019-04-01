@@ -2,6 +2,7 @@ package CelestialBodyGorge;
 
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.Tile;
+import nl.han.ica.oopg.tile.TileMap;
 
 public abstract class Planten extends Tile {
 	protected int stadium;
@@ -11,9 +12,8 @@ public abstract class Planten extends Tile {
 	
 	protected final int MAXSTADIUM = 3;
 	
-	Planten(Sprite sprite, int x, int y) {
+	public Planten(Sprite sprite, int x, int y) {
 		super(sprite);
-		stadium = 0;
 		this.x = x;
 		this.y = y;
 	}
