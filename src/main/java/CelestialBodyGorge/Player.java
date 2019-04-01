@@ -14,7 +14,7 @@ public class Player extends AnimatedSpriteObject {
 	private CBGapp world;
 	private Inventaris inventaris;
 	private int gereedschapVast;
-	private int goud;
+	private int goud = 1;
 
 	private float xPositie;
 	private float yPositie;

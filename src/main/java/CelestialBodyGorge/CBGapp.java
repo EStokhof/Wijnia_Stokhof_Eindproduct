@@ -15,6 +15,7 @@ import nl.han.ica.oopg.view.View;
 public class CBGapp extends GameEngine {
 	private Player player;
     private Sound backgroundMusic;
+    private ObjectText dashboardTextGoud;
     
     private final int WORLDWIDTH = 1150;
 	private final int WORLDHEIGHT = 800;
@@ -40,11 +41,12 @@ public class CBGapp extends GameEngine {
        // creeert de player + zet dit in de game object lijst.  
         player = new Player(this, tileMap);
         addGameObject(player, 200, 200);
-      
+        createDashboard(150, 30);
         // set de view van de game. de hele map is altijd zichtbaar.
         View view = new View(WORLDWIDTH, WORLDHEIGHT);
         setView(view);
         size(WORLDWIDTH, WORLDHEIGHT);
+        
     }
 
     @Override
@@ -130,7 +132,7 @@ public class CBGapp extends GameEngine {
     
     private void createDashboard(int dashboardWidth, int dashboardHeight) {
         Dashboard goud = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
-        dashboardTextGoud = new TextObject("Goud: ", dashboardHeight);
+        dashboardTextGoud = new ObjectText("Goud: ");
         goud.addGameObject(dashboardTextGoud);
         addDashboard(goud);
     }
