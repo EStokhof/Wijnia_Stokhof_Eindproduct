@@ -3,10 +3,6 @@ package CelestialBodyGorge;
 import nl.han.ica.oopg.objects.Sprite;
 
 public class Zeis extends Gereedschap {
-	Zeis() {
-		super(new Sprite("src/main/java/CelestialBodyGorge/media/menu/zeis.png"));
-	}
-
 	public int verdient = 50;
 	
 	@Override
