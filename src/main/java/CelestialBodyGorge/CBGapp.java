@@ -1,13 +1,15 @@
 package CelestialBodyGorge;
 
 import nl.han.ica.oopg.objects.Sprite;
+import nl.han.ica.oopg.objects.TextObject;
+import nl.han.ica.oopg.dashboard.Dashboard;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.sound.Sound;
 import nl.han.ica.oopg.tile.Tile;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
-
+//import processing.core.PImage;
 
 @SuppressWarnings("serial")
 public class CBGapp extends GameEngine {
@@ -121,6 +123,20 @@ public class CBGapp extends GameEngine {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}  // 16 x 23 // (0-15) x (0-22)
         };
         tileMap = new TileMap(tileSize, tileTypes, tilesMap);
+    }
+    
+    
+
+    
+    private void createDashboard(int dashboardWidth, int dashboardHeight) {
+        Dashboard goud = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
+        dashboardTextGoud = new TextObject("Goud: ", dashboardHeight);
+        goud.addGameObject(dashboardTextGoud);
+        addDashboard(goud);
+    }
+    
+    public void refreshDashboardText() { 
+    	        dashboardTextGoud.setText("Goud: " + player.getGoud());
     }
     
 public Tile getTileOnObjectPosition (int x, int y) { 

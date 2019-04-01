@@ -10,7 +10,7 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.Tile;
 import nl.han.ica.oopg.tile.TileMap;
 
-public class Player extends AnimatedSpriteObject implements ICollidableWithTiles {
+public class Player extends AnimatedSpriteObject {
 	private CBGapp world;
 	private Inventaris inventaris;
 	private int gereedschapVast;
@@ -20,6 +20,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	private float yPositie;
 
 	private boolean frameSwitch;
+	private boolean Pauze = false;
 
 	ArrayList<Gereedschap> playerInventaris = new ArrayList<>();
 
@@ -51,9 +52,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	@Override
 	public void keyPressed(int keyCode, char key) {
-		if (this.getX() < world.getWORLDWIDTH() || this.getX() > 0 || this.getY() < world.getWORLDHEIGHT()
-				|| this.getY() > 0) {
-
+		if (Pauze == false) {
 			if (key == 'a' || key == 'A') {
 				movePlayerX(-world.getTILESIZE());
 				setCurrentFrameIndex(2);
@@ -61,6 +60,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 			}
 			if (key == 'w' || key == 'W') {
 				movePlayerY(-world.getTILESIZE());
+				System.out.println("Naar boven lopen");
 
 				if (frameSwitch == false) {
 					frameSwitch = true;
@@ -69,8 +69,6 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 					frameSwitch = false;
 					setCurrentFrameIndex(5);
 				}
-
-				System.out.println("Naar boven lopen");
 
 			}
 			if (key == 'd' || key == 'D') {
@@ -105,6 +103,16 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 			if (key == ' ') {
 				playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
 			}
+		}
+		if (key == 'p' || key == 'P') {
+			if (Pauze == true) {
+				Pauze = false;
+				System.out.println("pauze");
+				//world.toonPauzeTutorial();
+			} else {
+				Pauze = true;
+			}
+
 		}
 	}
 
@@ -185,9 +193,6 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		return tegel.getOogstbaar();
 	}
 
-	@Override
-	public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
-		// TODO Auto-generated method stub
 
-	}
+	
 }
