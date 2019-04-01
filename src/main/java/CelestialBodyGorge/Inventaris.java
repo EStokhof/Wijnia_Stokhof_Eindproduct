@@ -26,9 +26,9 @@ public class Inventaris {
 	
 	public void tekenInventaris(int geselecteerd) {
 		if (geselecteerd == SCHOFFEL) {
-			tileMap.setTile(9, yCoord, 7);
+			tileMap.setTile(xCoord, yCoord, 7);
 		} else {
-			tileMap.setTile(9, yCoord, 2);
+			tileMap.setTile(xCoord, yCoord, 2);
 		}
 		xCoord++;
 		

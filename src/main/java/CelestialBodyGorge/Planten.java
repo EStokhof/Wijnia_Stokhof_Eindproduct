@@ -1,21 +1,18 @@
 package CelestialBodyGorge;
 
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.tile.Tile;
+import nl.han.ica.oopg.tile.TileMap;
 
-public abstract class Planten extends Tile {
+public abstract class Planten {
 	protected int stadium;
 	protected int x;
 	protected int y;
-	protected Tile tegel;
+	protected TileMap tileMap;
 	
 	protected final int MAXSTADIUM = 3;
 	
-	Planten(Sprite sprite, int x, int y) {
-		super(sprite);
-		stadium = 0;
-		this.x = x;
-		this.y = y;
+	public Planten(TileMap tileMap) {
+		this.tileMap = tileMap;
 	}
 	
 	public void setStadium() {

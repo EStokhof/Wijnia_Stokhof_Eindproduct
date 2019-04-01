@@ -99,12 +99,13 @@ public class CBGapp extends GameEngine {
         		boardTileZeisNormaal, boardTileAardbeizaadjeNormaal, boardTileRooszaadjeNormaal,
         		boardTileSchoffelGeselecteerd, boardTileGieterGeselecteerd, boardTileZeisGeselecteerd, 
         		boardTileAardbeizaadjeGeselecteerd, boardTileRooszaadjeGeselecteerd};
-        	
+        
+        // Bodemtypes index: 0 en 1
         // Normale tools index: 2 t/m 6
         // Geselecteerde tools index: 7 t/m 11
         
         int tileSize = TILESIZE;
-        int tilesMap[][] = { // [y][x]
+        int tilesMap[][] = { 	// [y][x]
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
                 {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
