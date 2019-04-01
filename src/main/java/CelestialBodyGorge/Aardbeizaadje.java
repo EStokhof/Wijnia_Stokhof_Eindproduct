@@ -4,10 +4,6 @@ import nl.han.ica.oopg.objects.Sprite;
 
 public class Aardbeizaadje extends ZakZaadjes {
 
-	Aardbeizaadje() {
-		super(new Sprite("src/main/java/CelestialBodyGorge/media/menu/aardbeiZaadjes.png"));
-	}
-
 	public void plantActie() {
 		System.out.println("Gebruik aarbeizaadjes!");
 		

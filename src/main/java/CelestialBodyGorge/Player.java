@@ -6,11 +6,8 @@ import java.util.List;
 import nl.han.ica.oopg.collision.CollidedTile;
 import nl.han.ica.oopg.collision.ICollidableWithTiles;
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
-import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.SpriteObject;
 import nl.han.ica.oopg.tile.Tile;
-import processing.core.PConstants;
 
 public class Player extends AnimatedSpriteObject implements ICollidableWithTiles {
 	private CBGapp world;
@@ -18,12 +15,6 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	private Design geldBalk;
 	private int gereedschapVast;
 	private int goud;
-
-	private final int SCHOFFEL = 0;
-	private final int GIETER = 1;
-	private final int ZEIS = 2;
-	private final int ROOSZAADJE = 3;
-	private final int AARDBEIZAADJE = 4;
 
 	private float xPositie;
 	private float yPositie;

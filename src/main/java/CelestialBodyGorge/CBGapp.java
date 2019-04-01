@@ -59,10 +59,10 @@ public class CBGapp extends GameEngine {
     }
     
     private void initializeTileMap () { 
-        Sprite grassSprite = new Sprite("src/main/java/CelestialBodyGorge/media/gras1.png");
+        Sprite grassSprite = new Sprite("src/main/java/CelestialBodyGorge/media/grond/gras1.png");
         TileType<BoardsTile> boardTileGrass = new TileType<>(BoardsTile.class, grassSprite);
         
-        Sprite aardeSprite = new Sprite("src/main/java/CelestialBodyGorge/media/aarde1.png");
+        Sprite aardeSprite = new Sprite("src/main/java/CelestialBodyGorge/media/grond/aarde1.png");
         TileType<BoardsTile> boardTileAarde = new TileType<>(BoardsTile.class, aardeSprite);
     	
         TileType[] tileTypes = {boardTileGrass, boardTileAarde};
@@ -84,7 +84,7 @@ public class CBGapp extends GameEngine {
                 {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
                 {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
                 {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}  // 16 x 24
         };
         tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }
