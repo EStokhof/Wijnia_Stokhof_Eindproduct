@@ -38,8 +38,8 @@ public class Player extends AnimatedSpriteObject {
 		playerInventaris.add(new Schoffel()); // index 0
 		playerInventaris.add(new Gieter()); // index 1
 		playerInventaris.add(new Zeis()); // index 2
-		playerInventaris.add(new Rooszaadje()); // index 3
-		playerInventaris.add(new Aardbeizaadje()); // index 4
+		playerInventaris.add(new Aardbeizaadje()); // index 3
+		playerInventaris.add(new Rooszaadje()); // index 4
 		xPositie = this.getX();
 		yPositie = this.getY();
 		frameSwitch = false;
@@ -69,7 +69,6 @@ public class Player extends AnimatedSpriteObject {
 					frameSwitch = false;
 					setCurrentFrameIndex(5);
 				}
-
 			}
 			if (key == 'd' || key == 'D') {
 				movePlayerX(world.getTILESIZE());
@@ -103,6 +102,8 @@ public class Player extends AnimatedSpriteObject {
 			if (key == ' ') {
 				playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
 			}
+			
+			inventaris.tekenInventaris(gereedschapVast);
 		}
 		if (key == 'p' || key == 'P') {
 			if (Pauze == true) {
