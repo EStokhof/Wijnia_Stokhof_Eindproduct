@@ -1,19 +1,21 @@
 package CelestialBodyGorge;
 
 import nl.han.ica.oopg.objects.Sprite;
+import nl.han.ica.oopg.objects.TextObject;
+import nl.han.ica.oopg.dashboard.Dashboard;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.sound.Sound;
 import nl.han.ica.oopg.tile.Tile;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
-
+//import processing.core.PImage;
 
 public class CBGapp extends GameEngine {
 	private Player player;
     private Sound backgroundMusic;
- 
-	private TileMap tilemap;
+	private TileMap tileMap;
+	private TextObject dashboardTextGoud;
     
     private final int WORLDWIDTH = 1200;
 	private final int WORLDHEIGHT = 800;
@@ -45,6 +47,11 @@ public class CBGapp extends GameEngine {
         
         initializeSound();
         initializeTileMap();
+   //     createDashboard(WORLDWIDTH, 100); // voor het goud 
+    }
+    
+    public void draw () {
+    
     }
 
     @Override
@@ -110,6 +117,20 @@ public class CBGapp extends GameEngine {
         tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }
     
+    
+
+    
+    private void createDashboard(int dashboardWidth, int dashboardHeight) {
+        Dashboard goud = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
+        dashboardTextGoud = new TextObject("Goud: ", dashboardHeight);
+        goud.addGameObject(dashboardTextGoud);
+        addDashboard(goud);
+    }
+    
+    public void refreshDashboardText() { 
+    	        dashboardTextGoud.setText("Goud: " + player.getGoud());
+    }
+    
 public Tile getTileOnObjectPosition (int x, int y) { 
 	return tileMap.getTileOnPosition( x, y);
 }
@@ -125,6 +146,6 @@ public Tile getTileOnObjectPosition (int x, int y) {
 		return TILESIZE;
 	}
     public TileMap getTilemap() {
- 		return tilemap;
+ 		return tileMap;
  	}
 }

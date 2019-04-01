@@ -12,7 +12,7 @@ import nl.han.ica.oopg.objects.SpriteObject;
 import nl.han.ica.oopg.tile.Tile;
 import processing.core.PConstants;
 
-public class Player extends AnimatedSpriteObject implements ICollidableWithTiles {
+public class Player extends AnimatedSpriteObject {
 	private CBGapp world;
 	private Interface inventaris;
 	private int gereedschapVast;
@@ -28,6 +28,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	private float yPositie;
 
 	private boolean frameSwitch;
+	private boolean Pauze = false;
 
 	ArrayList<IGereedschap> playerInventaris = new ArrayList<IGereedschap>();
 
@@ -43,7 +44,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		inventaris = new Interface(); // iets meesturen? hierin sprites aanpassen van interface?
 
 		playerInventaris.add(new Schoffel()); // index 0
-		//playerInventaris.add(new Gieter()); // index 1
+		// playerInventaris.add(new Gieter()); // index 1
 		playerInventaris.add(new Zeis()); // index 2
 		playerInventaris.add(new Rooszaadje()); // index 3
 		playerInventaris.add(new Aardbeizaadje()); // index 4
@@ -60,9 +61,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	@Override
 	public void keyPressed(int keyCode, char key) {
 		final int speed = 5;
-		if (this.getX() < world.getWORLDWIDTH() || this.getX() > 0 || this.getY() < world.getWORLDHEIGHT()
-				|| this.getY() > 0) {
-
+		if (Pauze == false) {
 			if (key == 'a' || key == 'A') {
 				movePlayerX(-world.getTILESIZE());
 				setCurrentFrameIndex(2);
@@ -70,6 +69,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 			}
 			if (key == 'w' || key == 'W') {
 				movePlayerY(-world.getTILESIZE());
+				System.out.println("Naar boven lopen");
 
 				if (frameSwitch == false) {
 					frameSwitch = true;
@@ -78,8 +78,6 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 					frameSwitch = false;
 					setCurrentFrameIndex(5);
 				}
-
-				System.out.println("Naar boven lopen");
 
 			}
 			if (key == 'd' || key == 'D') {
@@ -114,6 +112,16 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 			if (key == ' ') {
 				playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
 			}
+		}
+		if (key == 'p' || key == 'P') {
+			if (Pauze == true) {
+				Pauze = false;
+				System.out.println("pauze");
+				//world.toonPauzeTutorial();
+			} else {
+				Pauze = true;
+			}
+
 		}
 	}
 
@@ -174,9 +182,6 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		return world.getTileOnObjectPosition(x, y);
 	}
 
-	@Override
-	public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
-		// TODO Auto-generated method stub
 
-	}
+	
 }
