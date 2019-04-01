@@ -8,11 +8,11 @@ import nl.han.ica.oopg.collision.ICollidableWithTiles;
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.Tile;
+import nl.han.ica.oopg.tile.TileMap;
 
 public class Player extends AnimatedSpriteObject implements ICollidableWithTiles {
 	private CBGapp world;
-	private Design inventaris;
-	private Design geldBalk;
+	private Inventaris inventaris;
 	private int gereedschapVast;
 	private int goud;
 
@@ -23,7 +23,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	ArrayList<Gereedschap> playerInventaris = new ArrayList<>();
 
-	public Player(CBGapp world) {
+	public Player(CBGapp world, TileMap tileMap) {
 
 		// Met `.concat()` plak je 2 strings aan elkaar.
 		// De methode returned een nieuwe String terug.
@@ -31,9 +31,8 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 		this.world = world;
 		goud = 500;
-
-		inventaris = new Design(); // iets meesturen? hierin sprites aanpassen van interface?
-		geldBalk = new Design();
+		gereedschapVast = 0; // schoffel
+		inventaris = new Inventaris(gereedschapVast, tileMap);
 
 		playerInventaris.add(new Schoffel()); // index 0
 		playerInventaris.add(new Gieter()); // index 1
