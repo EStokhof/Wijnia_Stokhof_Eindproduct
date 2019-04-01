@@ -6,11 +6,8 @@ import java.util.List;
 import nl.han.ica.oopg.collision.CollidedTile;
 import nl.han.ica.oopg.collision.ICollidableWithTiles;
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
-import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.SpriteObject;
 import nl.han.ica.oopg.tile.Tile;
-import processing.core.PConstants;
 
 public class Player extends AnimatedSpriteObject implements ICollidableWithTiles {
 	private CBGapp world;
@@ -18,12 +15,6 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 	private Design geldBalk;
 	private int gereedschapVast;
 	private int goud;
-
-	private final int SCHOFFEL = 0;
-	private final int GIETER = 1;
-	private final int ZEIS = 2;
-	private final int ROOSZAADJE = 3;
-	private final int AARDBEIZAADJE = 4;
 
 	private float xPositie;
 	private float yPositie;
@@ -45,7 +36,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		geldBalk = new Design();
 
 		playerInventaris.add(new Schoffel()); // index 0
-		//playerInventaris.add(new Gieter()); // index 1
+		playerInventaris.add(new Gieter()); // index 1
 		playerInventaris.add(new Zeis()); // index 2
 		playerInventaris.add(new Rooszaadje()); // index 3
 		playerInventaris.add(new Aardbeizaadje()); // index 4
@@ -145,7 +136,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 		System.out.println(huidigePositie);
 		if (nieuwePositie < world.getWORLDWIDTH() || nieuwePositie > 0) {
-			if (getTileOnNextPlayerPosition(nieuwePositie, this.getY()).isLoopbaar() == true) {
+			if (getTileOnNextPlayerPosition(nieuwePositie, this.getY()).getLoopbaar() == true) {
 				System.out.println(nieuwePositie);
 				this.setX(nieuwePositie);
 			}
@@ -157,7 +148,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		float nieuwePositie = huidigePositie + stepSize;
 		System.out.println(huidigePositie);
 		if (nieuwePositie <= world.getWORLDHEIGHT() || nieuwePositie >= 0) {
-			if (getTileOnNextPlayerPosition(this.getX(), nieuwePositie).isLoopbaar() == true)
+			if (getTileOnNextPlayerPosition(this.getX(), nieuwePositie).getLoopbaar() == true)
 				System.out.println(nieuwePositie);
 			this.setY(nieuwePositie);
 		}
@@ -170,7 +161,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 		return world.getTileOnObjectPosition(x, y);
 	}
 
-	public Tile getTileOnNextPlayerXPosition(float xPositie, float yPositie) { 
+	public Tile getTileOnNextPlayerPosition(float xPositie, float yPositie) { 
 		int x= (int) xPositie;
 		int y = (int) yPositie;
 		
