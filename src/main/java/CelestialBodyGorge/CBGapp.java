@@ -14,6 +14,8 @@ public class CBGapp extends GameEngine {
 	private Player player;
 	private Sound backgroundMusic;
 	private ObjectText dashboardTextGoud;
+	
+	protected Dashboard pauzeMenu;
 
 	private final int WORLDWIDTH = 1150;
 	private final int WORLDHEIGHT = 800;
@@ -29,7 +31,9 @@ public class CBGapp extends GameEngine {
 		initializeSound();
 		initializeTileMap();
 
-		createDashboard(150, 30); // dashboard voor het goud
+		createDashboardGoud(150, 30); // dashboard voor het goud
+		createPauzeMenu();
+		
 		player = new Player(this, tileMap);
 		addGameObject(player, 200, 200);
 
@@ -88,15 +92,13 @@ public class CBGapp extends GameEngine {
 		// Aardbeizaadje
 		Sprite aardbeizaadjeNormaal = new Sprite("src/main/java/CelestialBodyGorge/media/menu/aardbeizaadje.PNG");
 		MenuTileType boardTileAardbeizaadjeNormaal = new MenuTileType(aardbeizaadjeNormaal);
-		Sprite aardbeizaadjeGeselecteerd = new Sprite(
-				"src/main/java/CelestialBodyGorge/media/menu/aardbeizaadjeGeselecteerd.png");
+		Sprite aardbeizaadjeGeselecteerd = new Sprite("src/main/java/CelestialBodyGorge/media/menu/aardbeizaadjeGeselecteerd.png");
 		MenuTileType boardTileAardbeizaadjeGeselecteerd = new MenuTileType(aardbeizaadjeGeselecteerd);
 
 		// Rooszaadje
 		Sprite rooszaadjeNormaal = new Sprite("src/main/java/CelestialBodyGorge/media/menu/rooszaadje.PNG");
 		MenuTileType boardTileRooszaadjeNormaal = new MenuTileType(rooszaadjeNormaal);
-		Sprite rooszaadjeGeselecteerd = new Sprite(
-				"src/main/java/CelestialBodyGorge/media/menu/rooszaadjeGeselecteerd.png");
+		Sprite rooszaadjeGeselecteerd = new Sprite("src/main/java/CelestialBodyGorge/media/menu/rooszaadjeGeselecteerd.png");
 		MenuTileType boardTileRooszaadjeGeselecteerd = new MenuTileType(rooszaadjeGeselecteerd);
 
 		// array van alle tile types
@@ -133,7 +135,7 @@ public class CBGapp extends GameEngine {
 		tileMap = new TileMap(tileSize, tileTypes, tilesMap);
 	}
 
-	private void createDashboard(int dashboardWidth, int dashboardHeight) {
+	private void createDashboardGoud(int dashboardWidth, int dashboardHeight) {
 		// dit is de text die het goud bijhoudt.
 		Dashboard goud = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
 		dashboardTextGoud = new ObjectText("Goud: 400");
@@ -143,6 +145,12 @@ public class CBGapp extends GameEngine {
 
 	public void refreshDashboardText() {
 		dashboardTextGoud.setText("Goud: " + player.getGoud());
+	}
+	
+	private void createPauzeMenu() {
+		// dit is het instellen van het scherm van het pauzemenu
+		pauzeMenu = new Dashboard(50, 50, WORLDWIDTH-100, WORLDHEIGHT-100);
+		pauzeMenu.setBackgroundImage(new Sprite("src/main/java/CelestialBodyGorge/media/player/pauze.png"));
 	}
 
 	public BoardsTile getTileOnObjectPosition(int x, int y) {
