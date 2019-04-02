@@ -17,6 +17,8 @@ public class Zeis extends Gereedschap {
 			speler.setGoud(verdient);
 			boardstile.setSprite(aarde);
 			boardstile.setPlant(null);
+			boardstile.setGeschoffeld(false);
+			boardstile.setSchoffelbaar(true);
 		}
 	}
 

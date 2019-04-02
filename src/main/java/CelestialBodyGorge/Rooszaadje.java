@@ -1,7 +1,5 @@
 package CelestialBodyGorge;
 
-import nl.han.ica.oopg.tile.Tile;
-
 public class Rooszaadje extends ZakZaadjes{
 CBGapp world;
 

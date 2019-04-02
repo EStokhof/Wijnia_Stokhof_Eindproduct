@@ -12,6 +12,7 @@ public class Schoffel extends Gereedschap {
 		BoardsTile boardstile = speler.getTileOnPlayerPosition();
 		
 		if (boardstile.getSchoffelbaar() == true) {
+			boardstile.setSchoffelbaar(false);
 			boardstile.setGeschoffeld(true);
 			boardstile.setSprite(geschoffeldeGrond);
 		}
