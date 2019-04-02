@@ -11,11 +11,14 @@ Aardbeizaadje (CBGapp world) {
 	
 	@Override
 	public void plantActie(Player speler) {
-		System.out.println("Gebruik aarbeizaadjes!");
-	
-//		new Aardbei();
-		// maakt object aardbei aan
-		// in aarbei set sprite op stadium 1 (of 0)
+		BoardsTile tile = world.getTileOnPlayerPosition();
+		
+//		
+		if(tile.getGeschoffeld() == true) {
+			Aardbei aardbei = new Aardbei(tile);
+			tile.setPlant(aardbei);
+			
+		}
 	}
 
 	
