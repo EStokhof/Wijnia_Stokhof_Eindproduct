@@ -12,11 +12,7 @@ public class Gieter extends Gereedschap {
 
 		if (boardstile.getPlant() != null) {
 			Planten plant = boardstile.getPlant();
-			if (plant.stadium != plant.MAXSTADIUM) {
-				
-				plant.stadium++;
-				System.out.println(plant.stadium);
-			}
+			plant.setStadium();
 		}
 	}
 

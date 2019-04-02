@@ -13,8 +13,8 @@ public class Player extends AnimatedSpriteObject {
 	private int gereedschapVast;
 	private int goud = 400;
 
-	private float xPositie;
-	private float yPositie;
+	private float xPositie = 200;
+	private float yPositie = 200;
 
 	private boolean frameSwitch;
 	private boolean Pauze = false;
@@ -26,7 +26,6 @@ public class Player extends AnimatedSpriteObject {
 		// Met `.concat()` plak je 2 strings aan elkaar.
 		// De methode returned een nieuwe String terug.
 		super(new Sprite(world.MEDIA_URL.concat("player/player.png")), 6);
-
 		this.world = world;
 		goud = 500;
 		gereedschapVast = 0; // schoffel
@@ -38,8 +37,7 @@ public class Player extends AnimatedSpriteObject {
 		playerInventaris.add(new Zeis()); // index 2
 		playerInventaris.add(new Aardbeizaadje(world)); // index 3
 		playerInventaris.add(new Rooszaadje(world)); // index 4
-		xPositie = 200;
-		yPositie = 200;
+		
 		frameSwitch = false;
 	}
 
