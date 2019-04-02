@@ -11,10 +11,10 @@ Aardbeizaadje (CBGapp world) {
 	
 	@Override
 	public void plantActie(Player speler) {
-		BoardsTile tile = world.getTileOnPlayerPosition();
+		BoardsTile tile = speler.getTileOnPlayerPosition();
 		
 //		
-		if(tile.getGeschoffeld() == true) {
+		if(tile.getGeschoffeld() == true  && tile.getPlant() == null) {
 			Aardbei aardbei = new Aardbei(tile);
 			tile.setPlant(aardbei);
 			

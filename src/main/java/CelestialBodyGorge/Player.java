@@ -31,12 +31,12 @@ public class Player extends AnimatedSpriteObject {
 		playerInventaris.add(new Aardbeizaadje(world)); // index 3
 		playerInventaris.add(new Rooszaadje(world)); 	// index 4
 		
-		world.refreshDashboardText();
+		
 	}
 
 	@Override
 	public void update() {
-
+	
 	}
 
 	@Override

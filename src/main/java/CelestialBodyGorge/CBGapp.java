@@ -9,7 +9,6 @@ import nl.han.ica.oopg.tile.Tile;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
-//import processing.core.PImage;
 
 @SuppressWarnings("serial")
 public class CBGapp extends GameEngine {
@@ -34,9 +33,10 @@ public class CBGapp extends GameEngine {
     	initializeSound();
         initializeTileMap();
         
+        createDashboard(150, 30); // dashboard voor het goud
         player = new Player(this, tileMap);
         addGameObject(player, 200, 200);
-        createDashboard(150, 30);
+    
         // set de view van de game. de hele map is altijd zichtbaar.
         View view = new View(WORLDWIDTH, WORLDHEIGHT);
         setView(view);
@@ -46,7 +46,6 @@ public class CBGapp extends GameEngine {
 
     @Override
     public void update() {
-        // Dit doet nog helemaal niks
         
     }
     
@@ -56,7 +55,7 @@ public class CBGapp extends GameEngine {
     }
     
     private void initializeTileMap () { 
-    	
+    	// deze initialiseert de tile map.
     	// TILES ----------------------------
         Sprite grassSprite = new Sprite("src/main/java/CelestialBodyGorge/media/grond/gras1.png");
         BoardsTileType boardTileGrass = new BoardsTileType(grassSprite, true, true);
@@ -101,6 +100,7 @@ public class CBGapp extends GameEngine {
     	Sprite rooszaadjeGeselecteerd = new Sprite("src/main/java/CelestialBodyGorge/media/menu/rooszaadjeGeselecteerd.png");
     	MenuTileType  boardTileRooszaadjeGeselecteerd = new MenuTileType(rooszaadjeGeselecteerd);
     	
+    	// array van alle tile types
         TileType[] tileTypes = {boardTileGrass, boardTileAarde, boardTileSchoffelNormaal, boardTileGieterNormaal, 
         		boardTileZeisNormaal, boardTileAardbeizaadjeNormaal, boardTileRooszaadjeNormaal,
         		boardTileSchoffelGeselecteerd, boardTileGieterGeselecteerd, boardTileZeisGeselecteerd, 
@@ -136,8 +136,9 @@ public class CBGapp extends GameEngine {
 
     
     private void createDashboard(int dashboardWidth, int dashboardHeight) {
+    	// dit is de text die het goud bijhoudt. 
         Dashboard goud = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
-        dashboardTextGoud = new ObjectText("Goud: ");
+        dashboardTextGoud = new ObjectText("Goud: 400");
         goud.addGameObject(dashboardTextGoud);
         addDashboard(goud);
     }
@@ -149,12 +150,7 @@ public class CBGapp extends GameEngine {
 public BoardsTile getTileOnObjectPosition (int x, int y) { 
 	return getTileFromTileMap( x, y);
 }
-public BoardsTile getTileOnPlayerPosition () { 
-	 int x = (int)player.getxPositie();
-	 int y = (int) player.getyPositie();
-		return getTileFromTileMap( x, y);
-		
-	}
+
 
 	private BoardsTile getTileFromTileMap(int x, int y) {
 		Tile tile = tileMap.getTileOnPosition(x, y);
