@@ -1,8 +1,5 @@
 package CelestialBodyGorge;
 
-import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.tile.Tile;
-
 public class Gieter extends Gereedschap {
 
 	@Override

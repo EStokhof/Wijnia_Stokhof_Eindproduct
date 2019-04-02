@@ -1,20 +1,19 @@
 package CelestialBodyGorge;
 
-import nl.han.ica.oopg.objects.Sprite;
-
 public abstract class ZakZaadjes extends Gereedschap {
 	protected int prijs = 40;
 	
 	@Override
 	public void gereedschapActie(Player speler) {
-		if (speler.getGoud() >= prijs) {
-			speler.setGoud(-prijs);
-		}
+		BoardsTile tile = speler.getTileOnPlayerPosition();
 		
-		// if (tegel waar ik op sta == geschoffeld) {
-		plantActie(speler);
-		// }
+		if (tile.getGeschoffeld() == true && tile.getPlant() == null) {
+			if (speler.getGoud() >= prijs) {
+				plantActie(tile);
+				speler.setGoud(-prijs);
+			}
+		}
 	}
 	
-	public abstract void plantActie(Player speler);
+	public abstract void plantActie(BoardsTile tile);
 }

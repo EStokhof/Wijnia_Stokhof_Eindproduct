@@ -1,7 +1,6 @@
 package CelestialBodyGorge;
 
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.TextObject;
 import nl.han.ica.oopg.dashboard.Dashboard;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.sound.Sound;
@@ -9,7 +8,6 @@ import nl.han.ica.oopg.tile.Tile;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
-//import processing.core.PImage;
 
 @SuppressWarnings("serial")
 public class CBGapp extends GameEngine {
