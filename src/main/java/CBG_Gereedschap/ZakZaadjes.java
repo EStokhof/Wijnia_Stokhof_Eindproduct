@@ -3,7 +3,7 @@ package CBG_Gereedschap;
 import CBG_Tiles.BoardsTile;
 import CelestialBodyGorge.Player;
 
-public abstract class ZakZaadjes extends Gereedschap {
+public abstract class ZakZaadjes implements IGereedschap {
 	protected int prijs = 40;
 	
 	@Override

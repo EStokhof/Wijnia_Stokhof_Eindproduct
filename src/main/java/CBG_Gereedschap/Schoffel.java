@@ -4,7 +4,7 @@ import CBG_Tiles.BoardsTile;
 import CelestialBodyGorge.Player;
 import nl.han.ica.oopg.objects.Sprite;
 
-public class Schoffel extends Gereedschap {
+public class Schoffel implements IGereedschap {
     private Sprite geschoffeldeGrond = new Sprite("src/main/java/CelestialBodyGorge/media/grond/geschoffeldeGrond.png");
 	
 	@Override
