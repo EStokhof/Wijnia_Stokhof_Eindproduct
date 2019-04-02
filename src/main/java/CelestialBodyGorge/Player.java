@@ -39,6 +39,7 @@ public class Player extends AnimatedSpriteObject {
 		playerInventaris.add(new Rooszaadje(world)); // index 4
 		
 		frameSwitch = false;
+		world.refreshDashboardText();
 	}
 
 	@Override
@@ -139,7 +140,7 @@ public class Player extends AnimatedSpriteObject {
 		float huidigePositie = this.getX();
 		float nieuwePositie = huidigePositie + stepSize;
 
-		if (nieuwePositie <= world.getWORLDWIDTH() && nieuwePositie >= 0) {
+		if (nieuwePositie <= world.getWORLDWIDTH() - stepSize && nieuwePositie >= 0  ) {
 			// als de volgende stap in de wereld zit
 			if (getTileOnNextPlayerPosition(nieuwePositie, this.getY()).getLoopbaar() == true) {
 				// check of de volgende tile loopbaar is
@@ -154,7 +155,7 @@ public class Player extends AnimatedSpriteObject {
 		float huidigePositie = this.getY();
 		float nieuwePositie = huidigePositie + stepSize;
 
-		if (nieuwePositie <= world.getWORLDHEIGHT() && nieuwePositie >= 0) {
+		if (nieuwePositie <= world.getWORLDHEIGHT() - stepSize && nieuwePositie >= 0 ) {
 			// als de volgende stap in de wereld zit
 			if (getTileOnNextPlayerPosition(this.getX(), nieuwePositie).getLoopbaar() == true) {
 				// check of de volgende tile loopbaar is
