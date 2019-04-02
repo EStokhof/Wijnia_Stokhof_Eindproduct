@@ -59,7 +59,7 @@ public class CBGapp extends GameEngine {
     	
     	// TILES ----------------------------
         Sprite grassSprite = new Sprite("src/main/java/CelestialBodyGorge/media/grond/gras1.png");
-        BoardsTileType boardTileGrass = new BoardsTileType(grassSprite, false, true);
+        BoardsTileType boardTileGrass = new BoardsTileType(grassSprite, true, true);
         
         Sprite aardeSprite = new Sprite("src/main/java/CelestialBodyGorge/media/grond/aarde1.png");
         BoardsTileType boardTileAarde = new BoardsTileType(aardeSprite, true, true);

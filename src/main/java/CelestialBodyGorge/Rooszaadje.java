@@ -15,7 +15,8 @@ CBGapp world;
 		
 		System.out.println("Gebruik rooszaadjes!");
 	
-		if(tile.getGeschoffeld() == true) {
+		if(tile.getGeschoffeld() == true && tile.getPlant() != null) {
+
 			Roos roos = new Roos(tile);
 			tile.setPlant(roos);
 			
