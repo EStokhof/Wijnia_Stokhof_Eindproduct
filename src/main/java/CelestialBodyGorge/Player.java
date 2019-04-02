@@ -20,7 +20,7 @@ public class Player extends AnimatedSpriteObject {
 
 	public Player(CBGapp world, TileMap tileMap) {
 		// Met '.concat()' plak je 2 strings aan elkaar - returned een nieuwe String
-		super(new Sprite(CBGapp.MEDIA_URL.concat("player/player.png")), 6);
+		super(new Sprite("src/main/java/CelestialBodyGorge/media/player/player.png"), 6);
 		this.world = world;
 		
 		inventaris = new Inventaris(gereedschapVast, tileMap);
@@ -181,6 +181,7 @@ public class Player extends AnimatedSpriteObject {
 
 		return world.getTileOnObjectPosition(x, y);
 	}
+	
 
 	public BoardsTile getTileOnNextPlayerPosition(float xPositie, float yPositie) {
 		// deze functie is nodig voor het lopen.

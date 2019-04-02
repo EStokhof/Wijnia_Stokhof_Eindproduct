@@ -20,6 +20,7 @@ public abstract class Planten {
 			setOogstbaar();
 		}
 		
+		//als het stadium verandert, dan ook de sprite
 		Sprite sprite = getSprite();
 		tile.setSprite(sprite);
 	}
