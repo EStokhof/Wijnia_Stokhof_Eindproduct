@@ -1,44 +1,37 @@
 package CelestialBodyGorge;
 
 import java.util.ArrayList;
-
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.tile.Tile;
 import nl.han.ica.oopg.tile.TileMap;
 
 public class Player extends AnimatedSpriteObject {
 	private CBGapp world;
 	private Inventaris inventaris;
-	private int gereedschapVast;
+	
+	private int gereedschapVast = 0;
 	private int goud = 400;
-
 	private float xPositie = 200;
 	private float yPositie = 200;
-
-	private boolean frameSwitch;
-	private boolean Pauze = false;
+	private boolean frameSwitch = false;
+	private boolean pauze = false;
 
 	ArrayList<Gereedschap> playerInventaris = new ArrayList<>();
 
 	public Player(CBGapp world, TileMap tileMap) {
-
-		// Met `.concat()` plak je 2 strings aan elkaar.
-		// De methode returned een nieuwe String terug.
-		super(new Sprite(world.MEDIA_URL.concat("player/player.png")), 6);
+		// Met '.concat()' plak je 2 strings aan elkaar - returned een nieuwe String
+		super(new Sprite(CBGapp.MEDIA_URL.concat("player/player.png")), 6);
 		this.world = world;
-		goud = 500;
-		gereedschapVast = 0; // schoffel
 		
 		inventaris = new Inventaris(gereedschapVast, tileMap);
 
-		playerInventaris.add(new Schoffel()); // index 0
-		playerInventaris.add(new Gieter()); // index 1
-		playerInventaris.add(new Zeis()); // index 2
+		playerInventaris.add(new Schoffel()); 			// index 0
+		playerInventaris.add(new Gieter()); 			// index 1
+		playerInventaris.add(new Zeis()); 				// index 2
 		playerInventaris.add(new Aardbeizaadje(world)); // index 3
-		playerInventaris.add(new Rooszaadje(world)); // index 4
+		playerInventaris.add(new Rooszaadje(world)); 	// index 4
 		
-		frameSwitch = false;
+		world.refreshDashboardText();
 	}
 
 	@Override
@@ -48,66 +41,84 @@ public class Player extends AnimatedSpriteObject {
 
 	@Override
 	public void keyPressed(int keyCode, char key) {
-		if (Pauze == false) {
-			if (key == 'a' || key == 'A') {
-				movePlayerX(-world.getTILESIZE());
-				setCurrentFrameIndex(2);
-				System.out.println("Naar links lopen");
+		if (pauze == false) {
+			switch(key) {
+				case 'a':
+				case 'A':
+					movePlayerX(-world.getTILESIZE());
+					System.out.println("Naar links lopen");
+					
+					// Texture change naar links lopen
+					setCurrentFrameIndex(2);
+					break;
+				case 'w':
+				case 'W':
+					movePlayerY(-world.getTILESIZE());
+					System.out.println("Naar boven lopen");
+	
+					// Texture change tijdens naar boven lopen
+					if (frameSwitch == false) {
+						frameSwitch = true;
+						setCurrentFrameIndex(4);
+					} else {
+						frameSwitch = false;
+						setCurrentFrameIndex(5);
+					}
+					break;
+				case 'd':
+				case 'D':
+					movePlayerX(world.getTILESIZE());
+					System.out.println("Naar rechts lopen");
+					
+					// Texture change naar rechts lopen
+					setCurrentFrameIndex(3);
+					break;
+				case 's':
+				case 'S':
+					movePlayerY(world.getTILESIZE());
+					System.out.println("Naar onder lopen");
+					
+					// Texture change tijdens naar onderen lopen
+					if (frameSwitch == false) {
+						frameSwitch = true;
+						setCurrentFrameIndex(0);
+					} else {
+						frameSwitch = false;
+						setCurrentFrameIndex(1);
+					}
+					break;
+				case 'q':
+				case 'Q':
+					// In de inventaris een gereedschap naar links
+					if (gereedschapVast != 0) {
+						gereedschapVast--;
+					}
+					break;
+				case 'e':
+				case 'E':
+					// In de inventaris een gereedschap naar rechts
+					if (gereedschapVast != playerInventaris.size() - 1) {
+						gereedschapVast++;
+					}
+					break;
+				case ' ':
+					// Voer de actie uit van het gereedschap
+					playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
+					break;
 			}
-			if (key == 'w' || key == 'W') {
-				movePlayerY(-world.getTILESIZE());
-				System.out.println("Naar boven lopen");
 
-				if (frameSwitch == false) {
-					frameSwitch = true;
-					setCurrentFrameIndex(4);
-				} else {
-					frameSwitch = false;
-					setCurrentFrameIndex(5);
-				}
-			}
-			if (key == 'd' || key == 'D') {
-				movePlayerX(world.getTILESIZE());
-				System.out.println("Naar rechts lopen");
-				setCurrentFrameIndex(3); // texture change naar rechts lopen
-			}
-			if (key == 's' || key == 'S') {
-				movePlayerY(world.getTILESIZE());
-				System.out.println("Naar onder lopen");
-				if (frameSwitch == false) {
-					frameSwitch = true;
-					setCurrentFrameIndex(0);
-				} else {
-					frameSwitch = false;
-					setCurrentFrameIndex(1);
-				}
-				// texture change naar onder lopen
-			}
-			if (key == 'q' || key == 'Q') {
-				if (gereedschapVast != 0) {
-					gereedschapVast--;
-					// verander sprites van inventaris (rood randje)
-				}
-			}
-			if (key == 'e' || key == 'E') {
-				if (gereedschapVast != playerInventaris.size() - 1) {
-					gereedschapVast++;
-					// verander sprites van inventaris (rood randje)
-				}
-			}
-			if (key == ' ') {
-				playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
-			}
-
+			// Teken het menu met het [nieuwe] geselecteerde gereedschap
 			inventaris.tekenInventaris(gereedschapVast);
+			world.refreshDashboardText();
 		}
+		
 		if (key == 'p' || key == 'P') {
-			if (Pauze == true) {
-				Pauze = false;
+			if (pauze == true) {
+				pauze = false;
 				System.out.println("pauze");
 				// world.toonPauzeTutorial();
 			} else {
-				Pauze = true;
+				pauze = true;
 			}
 
 		}
