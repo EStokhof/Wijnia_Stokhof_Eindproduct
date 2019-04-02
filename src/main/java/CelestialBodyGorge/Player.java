@@ -30,6 +30,7 @@ public class Player extends AnimatedSpriteObject {
 		this.world = world;
 		goud = 500;
 		gereedschapVast = 0; // schoffel
+		
 		inventaris = new Inventaris(gereedschapVast, tileMap);
 
 		playerInventaris.add(new Schoffel()); // index 0
@@ -37,8 +38,8 @@ public class Player extends AnimatedSpriteObject {
 		playerInventaris.add(new Zeis()); // index 2
 		playerInventaris.add(new Aardbeizaadje(world)); // index 3
 		playerInventaris.add(new Rooszaadje(world)); // index 4
-		xPositie = this.getX();
-		yPositie = this.getY();
+		xPositie = 200;
+		yPositie = 200;
 		frameSwitch = false;
 	}
 
