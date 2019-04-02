@@ -7,7 +7,6 @@ public class MenuTile extends Tile {
 
 	public MenuTile(Sprite sprite) {
 		super(sprite);
-		// TODO Auto-generated constructor stub
 	}
 
 }

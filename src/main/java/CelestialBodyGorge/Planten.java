@@ -1,10 +1,8 @@
 package CelestialBodyGorge;
 
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.tile.Tile;
-import nl.han.ica.oopg.tile.TileMap;
 
-public abstract class Planten{	
+public abstract class Planten {	
 	protected int stadium = 0;
 	protected final int MAXSTADIUM = 3;
 	protected BoardsTile tile;
@@ -17,30 +15,41 @@ public abstract class Planten{
 	public void setStadium() {
 		if (stadium != MAXSTADIUM) {
 			stadium++;
-			//setSprite(stadium);
-			if (stadium == MAXSTADIUM) {
-				// zet tegel op oogstbaar
-			}
 		}
+		if (stadium == MAXSTADIUM) {
+			setOogstbaar();
+		}
+		
+		Sprite sprite = getSprite();
+		tile.setSprite(sprite);
 	}
 
-	public void setOogstbaar() { 
-		if(stadium == MAXSTADIUM) {
-			tile.setOogstbaar(true);
-		}
+	public void setOogstbaar() {
+		tile.setOogstbaar(true);
 	}
-	protected abstract Sprite getSpriteStadium0();
-	protected abstract Sprite getSpriteStadium1();
-	protected abstract Sprite getSpriteStadium2();
-	protected abstract Sprite getSpriteStadium3();
 
+	// Get sprite van het juiste plantje in huidig stadium
 	public Sprite getSprite() {
 		switch(stadium) {
-		case 1: return getSpriteStadium1();
-		case 2: return getSpriteStadium2();
-		case 3: return getSpriteStadium3();
-		default: return getSpriteStadium0();
+			case 1:
+				return getSpriteStadium1();
+			case 2:
+				return getSpriteStadium2();
+			case 3:
+				return getSpriteStadium3();
+			default:
+				// Default als zaadje:
+				return getSpriteStadium0();
 		}	
 	}
+	
+	// Get sprites van bijbehorende plantsoort
+	protected abstract Sprite getSpriteStadium0();
+	
+	protected abstract Sprite getSpriteStadium1();
+	
+	protected abstract Sprite getSpriteStadium2();
+	
+	protected abstract Sprite getSpriteStadium3();
 	
 }
