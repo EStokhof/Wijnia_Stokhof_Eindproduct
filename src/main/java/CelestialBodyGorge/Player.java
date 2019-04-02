@@ -25,18 +25,16 @@ public class Player extends AnimatedSpriteObject {
 		
 		inventaris = new Inventaris(gereedschapVast, tileMap);
 
-		playerInventaris.add(new Schoffel()); 			// index 0
-		playerInventaris.add(new Gieter()); 			// index 1
-		playerInventaris.add(new Zeis()); 				// index 2
-		playerInventaris.add(new Aardbeizaadje(world)); // index 3
-		playerInventaris.add(new Rooszaadje(world)); 	// index 4
-		
-		
+		playerInventaris.add(new Schoffel()); 		// index 0
+		playerInventaris.add(new Gieter()); 		// index 1
+		playerInventaris.add(new Zeis()); 			// index 2
+		playerInventaris.add(new Aardbeizaadje()); 	// index 3
+		playerInventaris.add(new Rooszaadje());		// index 4
 	}
 
 	@Override
 	public void update() {
-	
+        world.refreshDashboardText();
 	}
 
 	@Override

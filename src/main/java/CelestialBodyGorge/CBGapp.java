@@ -1,7 +1,6 @@
 package CelestialBodyGorge;
 
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.TextObject;
 import nl.han.ica.oopg.dashboard.Dashboard;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.sound.Sound;

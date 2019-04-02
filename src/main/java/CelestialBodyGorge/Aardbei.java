@@ -14,25 +14,21 @@ public class Aardbei extends Planten {
 
 	@Override
 	protected Sprite getSpriteStadium0() {
-		// TODO Auto-generated method stub
 		return stadium0;
 	}
 
 	@Override
 	protected Sprite getSpriteStadium1() {
-		// TODO Auto-generated method stub
 		return stadium1;
 	}
 
 	@Override
 	protected Sprite getSpriteStadium2() {
-		// TODO Auto-generated method stub
 		return stadium2;
 	}
 
 	@Override
 	protected Sprite getSpriteStadium3() {
-		// TODO Auto-generated method stub
 		return oogst;
 	}
 //	}
