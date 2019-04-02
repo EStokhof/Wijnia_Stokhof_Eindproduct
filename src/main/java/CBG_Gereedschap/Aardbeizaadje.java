@@ -1,5 +1,7 @@
-package CelestialBodyGorge;
+package CBG_Gereedschap;
 
+import CBG_Planten.Aardbei;
+import CBG_Tiles.BoardsTile;
 
 public class Aardbeizaadje extends ZakZaadjes {
 	

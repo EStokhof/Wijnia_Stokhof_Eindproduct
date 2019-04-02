@@ -1,6 +1,14 @@
 package CelestialBodyGorge;
 
 import java.util.ArrayList;
+
+import CBG_Gereedschap.Aardbeizaadje;
+import CBG_Gereedschap.Gereedschap;
+import CBG_Gereedschap.Gieter;
+import CBG_Gereedschap.Rooszaadje;
+import CBG_Gereedschap.Schoffel;
+import CBG_Gereedschap.Zeis;
+import CBG_Tiles.BoardsTile;
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.TileMap;

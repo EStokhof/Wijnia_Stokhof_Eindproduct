@@ -1,4 +1,8 @@
-package CelestialBodyGorge;
+package CBG_Gereedschap;
+
+import CBG_Planten.Planten;
+import CBG_Tiles.BoardsTile;
+import CelestialBodyGorge.Player;
 
 public class Gieter extends Gereedschap {
 

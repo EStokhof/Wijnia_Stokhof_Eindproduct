@@ -1,6 +1,9 @@
 package CelestialBodyGorge;
 
 import nl.han.ica.oopg.objects.Sprite;
+import CBG_Tiles.BoardsTile;
+import CBG_Tiles.BoardsTileType;
+import CBG_Tiles.MenuTileType;
 import nl.han.ica.oopg.dashboard.Dashboard;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.sound.Sound;

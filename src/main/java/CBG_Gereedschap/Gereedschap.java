@@ -1,4 +1,6 @@
-package CelestialBodyGorge;
+package CBG_Gereedschap;
+
+import CelestialBodyGorge.Player;
 
 public abstract class Gereedschap {
 	

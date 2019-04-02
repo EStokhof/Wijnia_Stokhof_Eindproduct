@@ -1,4 +1,7 @@
-package CelestialBodyGorge;
+package CBG_Gereedschap;
+
+import CBG_Tiles.BoardsTile;
+import CelestialBodyGorge.Player;
 
 public abstract class ZakZaadjes extends Gereedschap {
 	protected int prijs = 40;

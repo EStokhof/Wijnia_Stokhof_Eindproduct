@@ -1,5 +1,7 @@
-package CelestialBodyGorge;
+package CBG_Gereedschap;
 
+import CBG_Tiles.BoardsTile;
+import CelestialBodyGorge.Player;
 import nl.han.ica.oopg.objects.Sprite;
 
 public class Schoffel extends Gereedschap {

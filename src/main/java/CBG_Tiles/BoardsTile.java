@@ -1,5 +1,6 @@
-package CelestialBodyGorge;
+package CBG_Tiles;
 
+import CBG_Planten.Planten;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.Tile;
 
