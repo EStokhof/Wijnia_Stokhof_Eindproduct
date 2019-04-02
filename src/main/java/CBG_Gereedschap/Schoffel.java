@@ -5,8 +5,7 @@ import CelestialBodyGorge.Player;
 import nl.han.ica.oopg.objects.Sprite;
 
 public class Schoffel extends Gereedschap {
-
-    public Sprite geschoffeldeGrond = new Sprite("src/main/java/CelestialBodyGorge/media/grond/geschoffeldeGrond.png");
+    private Sprite geschoffeldeGrond = new Sprite("src/main/java/CelestialBodyGorge/media/grond/geschoffeldeGrond.png");
 	
 	@Override
 	public void gereedschapActie(Player speler) {

@@ -8,5 +8,4 @@ public class MenuTile extends Tile {
 	public MenuTile(Sprite sprite) {
 		super(sprite);
 	}
-
 }

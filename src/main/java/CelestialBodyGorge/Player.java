@@ -121,10 +121,12 @@ public class Player extends AnimatedSpriteObject {
 		if (key == 'p' || key == 'P') {
 			if (pauze == true) {
 				pauze = false;
+				world.deleteDashboard(world.pauzeMenu);
 				System.out.println("pauze");
 				// world.toonPauzeTutorial();
 			} else {
 				pauze = true;
+				world.addDashboard(world.pauzeMenu);
 			}
 
 		}
