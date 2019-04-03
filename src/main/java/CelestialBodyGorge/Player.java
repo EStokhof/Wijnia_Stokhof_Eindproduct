@@ -198,13 +198,4 @@ public class Player extends AnimatedSpriteObject {
 
 		return world.getTileOnObjectPosition(x, y);
 	}
-
-	public float getxPositie() {
-		return xPositie;
-	}
-
-	public float getyPositie() {
-		return yPositie;
-	}
-
 }
