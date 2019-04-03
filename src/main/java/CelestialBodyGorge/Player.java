@@ -114,7 +114,7 @@ public class Player extends AnimatedSpriteObject {
 					break;
 				case ' ':
 					// Voer de actie uit van het gereedschap
-					playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
+					playerInventaris.get(gereedschapVast).gereedschapActie(this);
 					break;
 			}
 
@@ -134,10 +134,6 @@ public class Player extends AnimatedSpriteObject {
 			}
 
 		}
-	}
-
-	public int getGereedschapVast() {
-		return gereedschapVast;
 	}
 
 	public int getGoud() {

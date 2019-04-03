@@ -2,6 +2,7 @@ package CelestialBodyGorge;
 
 import nl.han.ica.oopg.tile.TileMap;
 
+//gecontroleerd
 public class Inventaris {
 	private TileMap tileMap;
 	

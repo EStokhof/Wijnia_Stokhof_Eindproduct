@@ -3,9 +3,10 @@ package CelestialBodyGorge;
 import nl.han.ica.oopg.objects.GameObject;
 import processing.core.PGraphics;
 
+//gecontroleerd
 public class ObjectText extends GameObject {
 	private String text;
-	private int textSize = 22;
+	private final int textSize = 22;
 	
 	public ObjectText(String text) {
 		this.text = text;
