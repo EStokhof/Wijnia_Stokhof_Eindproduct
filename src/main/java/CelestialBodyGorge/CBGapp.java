@@ -11,7 +11,12 @@ import nl.han.ica.oopg.tile.Tile;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
-
+/**
+ * CBGApp is de core van de game. Start deze class om de game te starten.
+ * 
+ * @author Sara Li Wijnia en Emma Stokhof
+ *
+ */
 @SuppressWarnings("serial")
 public class CBGapp extends GameEngine {
 	private Player player;
@@ -28,6 +33,10 @@ public class CBGapp extends GameEngine {
 		world.runSketch();
 	}
 
+	/**
+	 * In deze methode worden de voor het spel noodzakelijke
+	 * zaken geinitialiseerd.
+	 */
 	@Override
 	public void setupGame() {
 		initializeSound();
@@ -49,12 +58,18 @@ public class CBGapp extends GameEngine {
 	public void update() {
 
 	}
-
+	
+	/**
+     * Initialiseert geluid
+     */
 	private void initializeSound() {
 		backgroundMusic = new Sound(this, "src/main/java/CelestialBodyGorge/media/muziek/soundtrack.mp3");
 		backgroundMusic.loop(-1);
 	}
 
+	 /**
+     * Initialiseert de tilemap
+     */
 	private void initializeTileMap() {
 		// deze initialiseert de tile map.
 		// TILES ----------------------------
@@ -134,6 +149,12 @@ public class CBGapp extends GameEngine {
 		tileMap = new TileMap(tileSize, tileTypes, tilesMap);
 	}
 
+	/** 
+	 * Creeert het dashboard voor het goud ingame.
+	 * 
+	 * @param dashboardWidth de breedte van het dashboard
+	 * @param dashboardHeight de hoogte van het dashboard
+	 */
 	private void createDashboardGoud(int dashboardWidth, int dashboardHeight) {
 		// dit is de text die het goud bijhoudt.
 		Dashboard goud = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
@@ -142,10 +163,17 @@ public class CBGapp extends GameEngine {
 		addDashboard(goud);
 	}
 
+	/**
+	 * Vernieuwt het dashboard
+	 */
 	public void refreshDashboardText() {
 		dashboardTextGoud.setText("Goud: " + player.getGoud());
 	}
 	
+	
+	/**
+	 * Hierin wordt het pauze scherm gecreert. 
+	 */
 	private void createPauzeMenu() {
 		// dit is het instellen van het scherm van het pauzemenu
 	
@@ -153,12 +181,15 @@ public class CBGapp extends GameEngine {
 		pauzeMenu.setBackgroundImage(new Sprite("src/main/java/CelestialBodyGorge/media/menu/pauze.png"));
 	}
 
+	/**
+	 * Deze methode geeft de BoardsTile waarop een object staat.
+	 * 
+	 * @param x De x coordinaat van de BoardsTile
+	 * @param y De y coordinaat van de BoardsTile
+	 * @return Returneert de BoardsTile die op de meegegeven X en Y coordinaat is.
+	 */
 	public BoardsTile getTileOnObjectPosition(int x, int y) {
 		// de tile opvragen waar een object op is
-		return getTileFromTileMap(x, y);
-	}
-
-	private BoardsTile getTileFromTileMap(int x, int y) {
 		// tile opvragen functie. 
 		Tile tile = tileMap.getTileOnPosition(x, y);
 		if (tile == null || !(tile instanceof BoardsTile)) {
@@ -168,18 +199,39 @@ public class CBGapp extends GameEngine {
 		return (BoardsTile) tile;
 	}
 
+/** 
+ * Geeft de breedte van het spelscherm. 
+ * 
+ * @return WORLDWIDTH
+ */
 	public int getWORLDWIDTH() {
 		return WORLDWIDTH;
 	}
 
+	/** 
+	 * Geeft de hoogte van het spelscherm.
+	 * 
+	 * @return WORLDHEIGHT
+	 */
 	public int getWORLDHEIGHT() {
 		return WORLDHEIGHT;
 	}
 
+	
+	/** 
+	 * Geeft de tile grootte terug. 
+	 * 
+	 * @return TILESIZE
+	 */
 	public int getTILESIZE() {
 		return TILESIZE;
 	}
 
+	/**
+	 * Geeft de Tilemap terug van de map. 
+	 * 
+	 * @return tileMap
+	 */
 	public TileMap getTilemap() {
 		return tileMap;
 	}
