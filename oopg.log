@@ -3676,3 +3676,5 @@ FAILURE: java.lang.NoSuchMethodException: CelestialBodyGorge.BoardsTile.<init>(n
 FAILURE: java.lang.NoSuchMethodException: CelestialBodyGorge.BoardsTile.<init>(nl.han.ica.oopg.objects.Sprite)
 [2019-10-01 07:10:51.853] 
 FAILURE: java.lang.NoSuchMethodException: CelestialBodyGorge.BoardsTile.<init>(nl.han.ica.oopg.objects.Sprite)
+[2019-54-02 12:54:23.405] 
+FAILURE: java.lang.NullPointerException
