@@ -136,11 +136,8 @@ public class Player extends AnimatedSpriteObject {
 				System.out.println(world.getThreadState());
 			}
 			else if (world.getThreadState() == true) {
-
-				world.resumeGame();
 				world.deleteDashboard(pauzeMenu);
 				System.out.println("pauze");
-				System.out.println(world.getThreadState());
 			}
 		}
 
