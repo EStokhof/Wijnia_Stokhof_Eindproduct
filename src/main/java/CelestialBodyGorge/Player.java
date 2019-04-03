@@ -15,6 +15,8 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.TileMap;
 
 public class Player extends AnimatedSpriteObject {
+	private static int aantalPlayerFrames = 6;
+	
 	private CBGapp world;
 	private Inventaris inventaris;
 	private Dashboard pauzeMenu;
@@ -29,7 +31,7 @@ public class Player extends AnimatedSpriteObject {
 
 	public Player(CBGapp world, TileMap tileMap, Dashboard pauzeMenu) {
 		// Met '.concat()' plak je 2 strings aan elkaar - returned een nieuwe String
-		super(new Sprite("src/main/java/CelestialBodyGorge/media/player/player.png"), 6);
+		super(new Sprite("src/main/java/CelestialBodyGorge/media/player/player.png"), aantalPlayerFrames);
 		this.world = world;
 		this.pauzeMenu = pauzeMenu;
 		
