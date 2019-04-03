@@ -3,8 +3,8 @@ package CelestialBodyGorge;
 import java.util.ArrayList;
 
 import CBG_Gereedschap.Aardbeizaadje;
-import CBG_Gereedschap.Gereedschap;
 import CBG_Gereedschap.Gieter;
+import CBG_Gereedschap.IGereedschap;
 import CBG_Gereedschap.Rooszaadje;
 import CBG_Gereedschap.Schoffel;
 import CBG_Gereedschap.Zeis;
@@ -24,7 +24,7 @@ public class Player extends AnimatedSpriteObject {
 	private boolean frameSwitch = false;
 	private boolean pauze = false;
 
-	ArrayList<Gereedschap> playerInventaris = new ArrayList<>();
+	ArrayList<IGereedschap> playerInventaris = new ArrayList<>();
 
 	public Player(CBGapp world, TileMap tileMap) {
 		// Met '.concat()' plak je 2 strings aan elkaar - returned een nieuwe String

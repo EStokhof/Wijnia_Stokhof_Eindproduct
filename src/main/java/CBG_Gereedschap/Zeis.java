@@ -4,7 +4,7 @@ import CBG_Tiles.BoardsTile;
 import CelestialBodyGorge.Player;
 import nl.han.ica.oopg.objects.Sprite;
 
-public class Zeis extends Gereedschap {
+public class Zeis implements IGereedschap {
 	private int verdient = 50;
 	
 	private Sprite aarde = new Sprite("src/main/java/CelestialBodyGorge/media/grond/aarde1.png");

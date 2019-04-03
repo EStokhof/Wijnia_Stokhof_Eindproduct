@@ -4,7 +4,7 @@ import CBG_Planten.Planten;
 import CBG_Tiles.BoardsTile;
 import CelestialBodyGorge.Player;
 
-public class Gieter extends Gereedschap {
+public class Gieter implements IGereedschap {
 
 	@Override
 	public void gereedschapActie(Player speler) {
