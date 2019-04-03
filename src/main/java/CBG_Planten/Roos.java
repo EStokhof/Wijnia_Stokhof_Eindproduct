@@ -3,12 +3,13 @@ package CBG_Planten;
 import CBG_Tiles.BoardsTile;
 import nl.han.ica.oopg.objects.Sprite;
 
+//gecontroleerd
 public class Roos extends Planten {
 	// Sprites voor ieder stadium (zaadje tot oogst)
-	private final static Sprite stadium0 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos1.png");
-    private final static Sprite stadium1 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos2.png");
-    private final static Sprite stadium2 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos3.png");
-    private final static Sprite oogst = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos4.png");
+	private static Sprite stadium0 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos1.png");
+    private static Sprite stadium1 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos2.png");
+    private static Sprite stadium2 = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos3.png");
+    private static Sprite oogst = new Sprite("src/main/java/CelestialBodyGorge/media/planten/roos4.png");
 	
 	public Roos(BoardsTile tile) {
 		super(tile);

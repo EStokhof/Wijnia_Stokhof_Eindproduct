@@ -3,6 +3,7 @@ package CBG_Gereedschap;
 import CBG_Planten.Roos;
 import CBG_Tiles.BoardsTile;
 
+//gecontroleerd
 public class Rooszaadje extends ZakZaadjes{
 
 	@Override

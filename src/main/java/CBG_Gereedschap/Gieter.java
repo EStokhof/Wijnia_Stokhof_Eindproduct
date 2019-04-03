@@ -4,6 +4,7 @@ import CBG_Planten.Planten;
 import CBG_Tiles.BoardsTile;
 import CelestialBodyGorge.Player;
 
+//gecontroleerd
 public class Gieter implements IGereedschap {
 
 	@Override
@@ -17,5 +18,4 @@ public class Gieter implements IGereedschap {
 			plant.setStadium();
 		}
 	}
-
 }

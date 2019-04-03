@@ -3,9 +3,10 @@ package CBG_Planten;
 import CBG_Tiles.BoardsTile;
 import nl.han.ica.oopg.objects.Sprite;
 
+//gecontroleerd
 public abstract class Planten {	
-	protected int stadium = 0;
 	protected final int MAXSTADIUM = 3;
+	protected int stadium = 0;
 	protected BoardsTile tile;
 	
 	public Planten(BoardsTile tile) {
@@ -26,12 +27,12 @@ public abstract class Planten {
 		tile.setSprite(sprite);
 	}
 
-	public void setOogstbaar() {
+	private void setOogstbaar() {
 		tile.setOogstbaar(true);
 	}
 
 	// Get sprite van het juiste plantje in huidig stadium
-	public Sprite getSprite() {
+	private Sprite getSprite() {
 		switch(stadium) {
 			case 1:
 				return getSpriteStadium1();

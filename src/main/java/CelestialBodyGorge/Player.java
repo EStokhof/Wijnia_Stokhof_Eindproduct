@@ -9,6 +9,7 @@ import CBG_Gereedschap.Rooszaadje;
 import CBG_Gereedschap.Schoffel;
 import CBG_Gereedschap.Zeis;
 import CBG_Tiles.BoardsTile;
+import nl.han.ica.oopg.dashboard.Dashboard;
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.TileMap;
@@ -16,6 +17,7 @@ import nl.han.ica.oopg.tile.TileMap;
 public class Player extends AnimatedSpriteObject {
 	private CBGapp world;
 	private Inventaris inventaris;
+	private Dashboard pauzeMenu;
 	
 	private int gereedschapVast = 0;
 	private int goud = 400;
@@ -26,10 +28,11 @@ public class Player extends AnimatedSpriteObject {
 
 	ArrayList<IGereedschap> playerInventaris = new ArrayList<>();
 
-	public Player(CBGapp world, TileMap tileMap) {
+	public Player(CBGapp world, TileMap tileMap, Dashboard pauzeMenu) {
 		// Met '.concat()' plak je 2 strings aan elkaar - returned een nieuwe String
 		super(new Sprite("src/main/java/CelestialBodyGorge/media/player/player.png"), 6);
 		this.world = world;
+		this.pauzeMenu = pauzeMenu;
 		
 		inventaris = new Inventaris(gereedschapVast, tileMap);
 
@@ -121,12 +124,12 @@ public class Player extends AnimatedSpriteObject {
 		if (key == 'p' || key == 'P') {
 			if (pauze == true) {
 				pauze = false;
-				world.deleteDashboard(world.pauzeMenu);
+				world.deleteDashboard(pauzeMenu);
 				System.out.println("pauze");
 				// world.toonPauzeTutorial();
 			} else {
 				pauze = true;
-				world.addDashboard(world.pauzeMenu);
+				world.addDashboard(pauzeMenu);
 			}
 
 		}
