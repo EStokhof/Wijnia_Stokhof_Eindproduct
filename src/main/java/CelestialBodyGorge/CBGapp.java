@@ -152,8 +152,9 @@ public class CBGapp extends GameEngine {
 	
 	private void createPauzeMenu() {
 		// dit is het instellen van het scherm van het pauzemenu
+	
 		pauzeMenu = new Dashboard(50, 50, WORLDWIDTH-100, WORLDHEIGHT-100);
-		pauzeMenu.setBackgroundImage(new Sprite("src/main/java/CelestialBodyGorge/media/player/pauze.png"));
+		pauzeMenu.setBackgroundImage(new Sprite("src/main/java/CelestialBodyGorge/media/menu/pauze.png"));
 	}
 
 	public BoardsTile getTileOnObjectPosition(int x, int y) {
