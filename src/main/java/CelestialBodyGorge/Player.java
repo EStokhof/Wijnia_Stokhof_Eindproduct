@@ -100,6 +100,7 @@ public class Player extends AnimatedSpriteObject {
 				// In de inventaris een gereedschap naar links
 				if (gereedschapVast != 0) {
 					gereedschapVast--;
+					inventaris.tekenInventaris(gereedschapVast);
 				}
 				break;
 			case 'e':
@@ -107,11 +108,12 @@ public class Player extends AnimatedSpriteObject {
 				// In de inventaris een gereedschap naar rechts
 				if (gereedschapVast != playerInventaris.size() - 1) {
 					gereedschapVast++;
+					inventaris.tekenInventaris(gereedschapVast);
 				}
 				break;
 			case ' ':
 				// Voer de actie uit van het gereedschap
-				playerInventaris.get(getGereedschapVast()).gereedschapActie(this);
+				playerInventaris.get(gereedschapVast).gereedschapActie(this);
 				break;
 
 			}
@@ -122,14 +124,14 @@ public class Player extends AnimatedSpriteObject {
 
 		if (key == 'p' || key == 'P') {
 			if (world.getThreadState() == false) {
-				world.addDashboard(world.pauzeMenu);
+				world.addDashboard(pauzeMenu);
 				world.pauseGame();
 				System.out.println(world.getThreadState());
 			}
 			else if (world.getThreadState() == true) {
 
 				world.resumeGame();
-				world.deleteDashboard(world.pauzeMenu);
+				world.deleteDashboard(pauzeMenu);
 				System.out.println("pauze");
 				System.out.println(world.getThreadState());
 			}
