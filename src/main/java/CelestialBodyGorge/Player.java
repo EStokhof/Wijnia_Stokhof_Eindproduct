@@ -14,6 +14,11 @@ import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.TileMap;
 
+/**
+ * Deze class maakt de speler en bijbehorende onderdelen aan.
+ * @author Sara Li Wijnia en Emma Stokhof
+ *
+ */
 public class Player extends AnimatedSpriteObject {
 	private static int aantalPlayerFrames = 6;
 	
@@ -141,23 +146,35 @@ public class Player extends AnimatedSpriteObject {
 
 	}
 
+	/**
+	 * Deze functie wordt aangeroepen om te kijken of de speler genoeg goud heeft om bv zaadjes te kopen.
+	 * @return goud is de hoeveelheid goud die de speler bezit
+	 */
 	public int getGoud() {
 		return goud;
 	}
 
-	public void setGoud(int geld) {
-		goud += geld;
+	/**
+	 * Deze functie wordt aangeroepen in een actie die geld kost of opleverd.
+	 * @param goud is het aantal goud dat de speler heeft verdient of uitgegeven
+	 */
+	public void setGoud(int goud) {
+		this.goud += goud;
 
-		if (geld < 0) {
-			geld *= -1;
-			System.out.println("Deze actie kostte " + geld + " goud");
+		if (goud < 0) {
+			goud *= -1;
+			System.out.println("Deze actie kostte " + goud + " goud");
 		} else {
-			System.out.println("je hebt " + geld + " goud verdient!");
+			System.out.println("je hebt " + goud + " goud verdient!");
 		}
 
-		System.out.println("Geld is nu " + goud);
+		System.out.println("Geld is nu " + this.goud);
 	}
 
+	/**
+	 * Deze functie wordt aangeroepen om de speler horizontaal te laten lopen.
+	 * @param stepSize: de richting(links/rechts) waarin de speler loopt en hoe groot de stap is
+	 */
 	void movePlayerX(float stepSize) {
 		// functie om de player elke keer een tile te laten lopen, X-as
 		float huidigePositie = this.getX();
@@ -173,6 +190,10 @@ public class Player extends AnimatedSpriteObject {
 		}
 	}
 
+	/**
+	 * Deze functie wordt aangeroepen om de speler verticaal te laten lopen.
+	 * @param tepSize: de richting(boven/beneden) waarin de speler loopt en hoe groot de stap is
+	 */
 	void movePlayerY(float stepSize) {
 		// functie om de player een tile elke keer te laten lopen, Y-as
 		float huidigePositie = this.getY();
@@ -188,13 +209,23 @@ public class Player extends AnimatedSpriteObject {
 		}
 	}
 
+	/**
+	 * Deze tegel wordt aangeroepen om te controleren welke actie op deze tegel uitgevoerd mag worden.
+	 * @return BoardsTile: de tegel waar de speler op staat
+	 */
 	public BoardsTile getTileOnPlayerPosition() {
 		int x = (int) xPositie;
 		int y = (int) yPositie;
 
 		return world.getTileOnObjectPosition(x, y);
 	}
-
+	
+	/**
+	 * Deze functie wordt aangeroepen om bv te kijken of de speler op de volgende tegel mag lopen.
+	 * @param xPositie: de x positie op de map
+	 * @param yPositie: de y positie op de map
+	 * @return BoardsTile: de tegel op meegegeven locatie
+	 */
 	public BoardsTile getTileOnNextPlayerPosition(float xPositie, float yPositie) {
 		// deze functie is nodig voor het lopen.
 		int x = (int) xPositie;

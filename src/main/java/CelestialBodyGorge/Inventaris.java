@@ -2,7 +2,12 @@ package CelestialBodyGorge;
 
 import nl.han.ica.oopg.tile.TileMap;
 
-//gecontroleerd
+/**
+ * Deze class maakt het object inventaris aan vanuit speler.
+ * Deze staat op een vaste plek in de map en bevat 5 stukken gereedschap.
+ * @author Sara Li Wijnia en Emma Stokhof
+ *
+ */
 public class Inventaris {
 	private TileMap tileMap;
 	
@@ -19,11 +24,20 @@ public class Inventaris {
 	private int selectedToolIndex = 7;
 	private final int AANTALTOOLS = 5;
 	
+	/**
+	 * Maakt de inventaris en zet deze op de map.
+	 * @param geselecteerd: het huidige gereedschap dat de speler vast heeft
+	 * @param tileMap: de game-wereld
+	 */
 	public Inventaris(int geselecteerd, TileMap tileMap) {
 		this.tileMap = tileMap;
 		tekenInventaris(geselecteerd);
 	}
 	
+	/**
+	 * Zet de inventaris opneiuw in de map zodat het juide gereedschap eruitziet als geselecteerde gereedschap.
+	 * @param geselecteerd: het huidige gereedschap dat de speler vast heeft
+	 */
 	public void tekenInventaris(int geselecteerd) {
 		for (int i = 0; i < AANTALTOOLS; i++) {
 			if (geselecteerd == i) {
