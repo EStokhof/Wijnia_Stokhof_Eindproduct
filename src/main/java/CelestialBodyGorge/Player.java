@@ -26,7 +26,7 @@ public class Player extends AnimatedSpriteObject {
 	private boolean frameSwitch = false;
 	private boolean pauze = false;
 
-	ArrayList<IGereedschap> playerInventaris = new ArrayList<>();
+	protected ArrayList<IGereedschap> playerInventaris = new ArrayList<>();
 
 	public Player(CBGapp world, TileMap tileMap, Dashboard pauzeMenu) {
 		// Met '.concat()' plak je 2 strings aan elkaar - returned een nieuwe String
@@ -101,6 +101,7 @@ public class Player extends AnimatedSpriteObject {
 					// In de inventaris een gereedschap naar links
 					if (gereedschapVast != 0) {
 						gereedschapVast--;
+						inventaris.tekenInventaris(gereedschapVast);
 					}
 					break;
 				case 'e':
@@ -108,6 +109,7 @@ public class Player extends AnimatedSpriteObject {
 					// In de inventaris een gereedschap naar rechts
 					if (gereedschapVast != playerInventaris.size() - 1) {
 						gereedschapVast++;
+						inventaris.tekenInventaris(gereedschapVast);
 					}
 					break;
 				case ' ':
@@ -117,7 +119,6 @@ public class Player extends AnimatedSpriteObject {
 			}
 
 			// Teken het menu met het [nieuwe] geselecteerde gereedschap
-			inventaris.tekenInventaris(gereedschapVast);
 			world.refreshDashboardText();
 		}
 		

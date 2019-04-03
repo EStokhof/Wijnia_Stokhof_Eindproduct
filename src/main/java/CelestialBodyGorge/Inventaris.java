@@ -5,19 +5,18 @@ import nl.han.ica.oopg.tile.TileMap;
 public class Inventaris {
 	private TileMap tileMap;
 	
-	private int yCoord = 15;
-	private int xCoordMin = 9;
+	// 2D array locaties [15][9] t/m [15][13]
+	private final int YCOORD = 15;
+	private final int XCOORDMIN = 9;
 	private int xCoord = 9;
 	
-	// 2D array locaties [15][9] t/m [15][13]
 	// Normale tools index: 2 t/m 6
-    // Geselecteerde tools index: 7 t/m 11
-	
-	private final int SCHOFFEL = 0;
-	private final int GIETER = 1;
-	private final int ZEIS = 2;
-	private final int AARDBEIZAADJE = 3;
-	private final int ROOSZAADJE = 4;
+	// Geselecteerde tools index: 7 t/m 11
+	private final int NORMALTOOLMIN = 2;
+	private int normalToolIndex = 2;
+	private final int SELECTEDTOOLMIN = 7;
+	private int selectedToolIndex = 7;
+	private final int AANTALTOOLS = 5;
 	
 	public Inventaris(int geselecteerd, TileMap tileMap) {
 		this.tileMap = tileMap;
@@ -25,41 +24,22 @@ public class Inventaris {
 	}
 	
 	public void tekenInventaris(int geselecteerd) {
-		if (geselecteerd == SCHOFFEL) {
-			tileMap.setTile(xCoord, yCoord, 7);
-		} else {
-			tileMap.setTile(xCoord, yCoord, 2);
+		for (int i = 0; i < AANTALTOOLS; i++) {
+			if (geselecteerd == i) {
+				tileMap.setTile(xCoord, YCOORD, selectedToolIndex);
+			} else {
+				tileMap.setTile(xCoord, YCOORD, normalToolIndex);
+			}
+			xCoord++;
+			selectedToolIndex++;
+			normalToolIndex++;
+			
+			if (i == AANTALTOOLS-1) {
+				xCoord = XCOORDMIN;
+				selectedToolIndex = SELECTEDTOOLMIN;
+				normalToolIndex = NORMALTOOLMIN;
+			}
 		}
-		xCoord++;
-		
-		if (geselecteerd == GIETER) {
-			tileMap.setTile(xCoord, yCoord, 8);
-		} else {
-			tileMap.setTile(xCoord, yCoord, 3);
-		}
-		xCoord++;
-		
-		if (geselecteerd == ZEIS) {
-			tileMap.setTile(xCoord, yCoord, 9);
-		} else {
-			tileMap.setTile(xCoord, yCoord, 4);
-		}
-		xCoord++;
-		
-		if (geselecteerd == AARDBEIZAADJE) {
-			tileMap.setTile(xCoord, yCoord, 10);
-		} else {
-			tileMap.setTile(xCoord, yCoord, 5);
-		}
-		xCoord++;
-		
-		if (geselecteerd == ROOSZAADJE) {
-			tileMap.setTile(xCoord, yCoord, 11);
-		} else {
-			tileMap.setTile(xCoord, yCoord, 6);
-		}
-		
-		xCoord = xCoordMin;
 	}
 
 }

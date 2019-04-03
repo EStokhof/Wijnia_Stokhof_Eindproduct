@@ -5,4 +5,5 @@ public class Bronnen {
 	// Celianna's Parallax Tiles 
 	// Stardew Valley voor de planten 
 	// https://thestoryteller01.files.wordpress.com/2014/07/vx-plants-tileset1.png voor de tile van leaves
+	
 }
