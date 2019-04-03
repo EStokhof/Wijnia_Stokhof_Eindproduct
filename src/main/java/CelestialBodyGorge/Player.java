@@ -16,7 +16,6 @@ import nl.han.ica.oopg.tile.TileMap;
 
 /**
  * Deze class maakt de speler en bijbehorende onderdelen aan.
- * @author Sara Li Wijnia en Emma Stokhof
  *
  */
 public class Player extends AnimatedSpriteObject {
