@@ -136,6 +136,7 @@ public class Player extends AnimatedSpriteObject {
 			}
 			else if (world.getThreadState() == true) {
 				world.deleteDashboard(pauzeMenu);
+				world.resumeGame();
 				System.out.println("pauze");
 			}
 		}
