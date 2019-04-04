@@ -22,7 +22,7 @@ public class CBGapp extends GameEngine {
 	private Player player;
 	private Sound backgroundMusic;
 	private ObjectText dashboardTextGoud;
-	private Dashboard pauzeMenu;
+	protected Dashboard pauzeMenu;
 
 	private final int WORLDWIDTH = 1150;
 	private final int WORLDHEIGHT = 800;
@@ -45,7 +45,7 @@ public class CBGapp extends GameEngine {
 		createDashboardGoud(150, 30); // dashboard voor het goud
 		createPauzeMenu();
 		
-		player = new Player(this, tileMap, pauzeMenu);
+		player = new Player(this, tileMap);
 		addGameObject(player, 200, 200);
 
 		// set de view van de game. de hele map is altijd zichtbaar.
@@ -176,8 +176,7 @@ public class CBGapp extends GameEngine {
 	 */
 	private void createPauzeMenu() {
 		// dit is het instellen van het scherm van het pauzemenu
-	
-		pauzeMenu = new Dashboard(50, 50, WORLDWIDTH-100, WORLDHEIGHT-100);
+		pauzeMenu = new Dashboard(TILESIZE, TILESIZE, WORLDWIDTH-(2*TILESIZE), WORLDHEIGHT-(2*TILESIZE));
 		pauzeMenu.setBackgroundImage(new Sprite("src/main/java/CelestialBodyGorge/media/menu/pauze.png"));
 	}
 
